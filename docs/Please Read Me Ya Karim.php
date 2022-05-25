@@ -96,13 +96,21 @@ arabic.php
 
 وأكتب فيهم الفانكشن اللي فيها اللغة عربي او انجليزي
 
+-------------------------------------------
 
+// v8 : Create database 
 
+Database Name : elzeroecommerce
 
-
-
-
-
+First table to create : users (8 coumns) :
+1- user_id int(11) primary key auto increment not null
+2- username varchar (255)
+3- password varchar(255)
+4- email varchar(255)
+5- fullname varchar(255)
+6- group_id int(11) default = 0     // if admin, group_id = 1  & if some user, group_id = 0
+7- trustedseller int(11) default = 0    // if seller is trusted, trustedseller = 1 and wright Trusted Seller for example.
+8- regstatus (Register status) int(11) default = 0  // After user sign up he needs to verify his account by email for example.
 
 
 
