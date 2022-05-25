@@ -10,7 +10,3 @@
     <link rel="stylesheet" href="<?php echo $css; ?>backend.css">
 </head>
 <body>
-    
-<div>
-    <h1>This is Header</h1>
-</div>

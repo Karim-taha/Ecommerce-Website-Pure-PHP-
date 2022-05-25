@@ -4,13 +4,14 @@
     include 'includes/languages/arabic.php';
 ?>
 
-<div>
-    <h1>Welcome to Admin Index</h1>
-</div>
+<form action="" class="login">
+    <h4 class="text-center">Admin Login</h4>
+    <input class="form-control" type="text" name="user" placeholder="username" autocomplete="off">
+    <input  class="form-control" type="password" name="pass" placeholder="Password" autocomplete="new-password">
+    <input  class="btn btn-primary btn-block" type="submit" value="login">
+</form>
 
 
 <?php 
     include $template . "footer.php";
-
-    echo lang('MESSAGE')  . " " . lang('ADMIN');
 ?>

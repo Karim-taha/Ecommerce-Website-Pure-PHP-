@@ -114,6 +114,10 @@ First table to create : users (8 coumns) :
 
 --------------------------------------------------
 
-// v10 : Connect to database with PDO 
+// v10 : Connect to database with PDO
+
+--------------------------------------------------
+
+// v11 : Create & design login form page.
 
 */
