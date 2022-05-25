@@ -1,6 +1,7 @@
 <?php 
     include "init.php";  // The file that contain all pathes & libraries. 
     include $template . "header.php";
+    include 'includes/languages/arabic.php';
 ?>
 
 <div>
@@ -10,4 +11,6 @@
 
 <?php 
     include $template . "footer.php";
+
+    echo lang('MESSAGE')  . " " . lang('ADMIN');
 ?>
