@@ -1,5 +1,6 @@
 <?php 
 
+include 'connect.php';
 // Templates Directory :
 $template = 'includes/templates/';
 

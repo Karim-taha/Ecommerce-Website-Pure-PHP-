@@ -98,7 +98,7 @@ arabic.php
 
 -------------------------------------------
 
-// v8 : Create database 
+// v9 : Create database 
 
 Database Name : elzeroecommerce
 
@@ -112,6 +112,8 @@ First table to create : users (8 coumns) :
 7- trustedseller int(11) default = 0    // if seller is trusted, trustedseller = 1 and wright Trusted Seller for example.
 8- regstatus (Register status) int(11) default = 0  // After user sign up he needs to verify his account by email for example.
 
+--------------------------------------------------
 
+// v10 : Connect to database with PDO 
 
 */
