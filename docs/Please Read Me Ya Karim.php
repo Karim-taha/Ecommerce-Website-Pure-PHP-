@@ -120,4 +120,8 @@ First table to create : users (8 coumns) :
 
 // v11 : Create & design login form page.
 
+--------------------------------------------------
+
+// v12 : Code the login form (part 1)
+
 */
