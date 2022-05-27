@@ -124,4 +124,8 @@ First table to create : users (8 coumns) :
 
 // v12 : Code the login form (part 1)
 
+--------------------------------------------------
+
+// v13 : Code the login form (part 2)
+
 */

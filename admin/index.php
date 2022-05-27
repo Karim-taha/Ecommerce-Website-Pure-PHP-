@@ -1,4 +1,8 @@
 <?php 
+    session_start();
+    if(isset($_SESSION['username'])){
+        header("Location: dashboard.php");
+    }
     include "init.php";  // The file that contain all pathes & libraries. 
     include $template . "header.php";
     include 'includes/languages/arabic.php';
@@ -16,7 +20,8 @@
             $count = $stmt->rowCount();
 
             if($count > 0){
-                echo $username . ' ' . $password;
+                $_SESSION['username'] = $username;
+                exit();
             } else {
                 echo "User not exists or you are not admin";
             }
