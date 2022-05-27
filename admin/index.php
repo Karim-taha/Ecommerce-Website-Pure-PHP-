@@ -1,11 +1,9 @@
 <?php 
     session_start();
-    if(isset($_SESSION['username'])){
-        header("Location: dashboard.php");
-    }
+    
+    $noNavbarInIndexPage = '';  // We will use this var in init.php
+    
     include "init.php";  // The file that contain all pathes & libraries. 
-    include $template . "header.php";
-    include 'includes/languages/arabic.php';
 
     // Check if user data is coming from HTTP REQUEST :
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -21,7 +19,10 @@
 
             if($count > 0){
                 $_SESSION['username'] = $username;
-                exit();
+                if(isset($_SESSION['username'])){
+                    header("Location: dashboard.php");
+                    exit();
+                }
             } else {
                 echo "User not exists or you are not admin";
             }

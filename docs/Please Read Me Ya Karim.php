@@ -128,4 +128,16 @@ First table to create : users (8 coumns) :
 
 // v13 : Code the login form (part 2)
 
+-------------------------------------------------
+
+// v14 : Adding the Bootstrap navigation bar
+
+// Important thing in this video that I do not want the navbar to show in index page (login page)
+so I will create an empty var in index page called for example $noNavbarInIndexPage = '';
+then I go to init page and include navbar in all pages except index page :
+if(!isset($noNavbarInIndexPage)){
+    include $template . "navbar.php";
+}
+
+
 */
