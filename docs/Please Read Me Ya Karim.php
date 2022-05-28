@@ -139,5 +139,12 @@ if(!isset($noNavbarInIndexPage)){
     include $template . "navbar.php";
 }
 
+-----------------------------------------------
+
+// v15 : Design & customize navbar
+
+-----------------------------------------------
+
+// v16 : Split page into pages with GET
 
 */

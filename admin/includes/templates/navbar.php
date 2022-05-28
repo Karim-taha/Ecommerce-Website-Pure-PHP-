@@ -9,7 +9,19 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"><?php echo lang('CATEGORIES'); ?></a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Items'); ?></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Members'); ?></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Statistics'); ?></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Logs'); ?></a>
+        </li>
+        <li class="nav-item dropdown" style="margin-left:45rem;">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <?php echo $_SESSION['username']; ?>
           </a>

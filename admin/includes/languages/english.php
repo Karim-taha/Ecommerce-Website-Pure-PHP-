@@ -1,30 +1,22 @@
-<?php 
+<?php
 
-function lang( $phrase ){
+function lang($phrase)
+{
 
-    static $lang = array (
+    static $lang = array(
 
-        // Dashboard Page ;
-        'HOME' => 'Home',
-        'CATEGORIES' => 'Catgories',
-        'Edit Profile' => 'Edit Profile',
-        'Settings' => 'Settings',
-        'Log out' => 'Log out',
+        // Navbar Page :
+        'HOME'              => 'Karim Shop',
+        'CATEGORIES'        => 'Catgories',
+        'Items'             => 'Items',
+        'Members'           => 'Members',
+        'Statistics'        => 'Statistics',
+        'Logs'              => 'Logs',
+        'Edit Profile'      => 'Edit Profile',
+        'Settings'          => 'Settings',
+        'Log out'           => 'Log out'
 
     );
 
     return $lang[$phrase];
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
