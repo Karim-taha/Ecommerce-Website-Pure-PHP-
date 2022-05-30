@@ -29,7 +29,7 @@
             <li><a class="dropdown-item" href="#"><?php echo lang('Edit Profile'); ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo lang('Settings'); ?></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><?php echo lang('Log out'); ?></a></li>
+            <li><a class="dropdown-item" href="logout.php"><?php echo lang('Log out'); ?></a></li>
           </ul>
         </li>
       </ul>

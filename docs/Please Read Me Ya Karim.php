@@ -147,4 +147,25 @@ if(!isset($noNavbarInIndexPage)){
 
 // v16 : Split page into pages with GET
 
+-----------------------------------------------
+
+// v17 : Create Logout page :
+
+session_start();   // Start the session
+
+session_unset();   // Unset the data that the session has to make it empty the same:  $_SESSION = array();
+
+session_destroy();  // Destroy the session
+
+header("Location: index.php");
+exit();
+
+// بعمل اكزيت بعد الهيدر عشان ميطلعليش اي 
+output error
+في حالة كتبت هيدر غلط
+
+// في مقال كويس عن مسح السيشن والكوكيز من موقع 
+php
+php.net/session_destroy
+
 */
