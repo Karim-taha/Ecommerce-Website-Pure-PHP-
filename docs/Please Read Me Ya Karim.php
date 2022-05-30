@@ -2,6 +2,16 @@
 
 /*
 
+/*
+== Important Videos :
+
+---------------------------
+// v19 : Start Creating Members Page : 
+Very important video to know how to pass the loged user in other pages by session
+---------------------------
+
+
+
 // V1 :
 - Ecommerce Website.
 - Multilanguage.
@@ -195,4 +205,16 @@ then go to header and wright in <title><?php getTitle(); >?</title>
 
 // If you have error (uncaught function ) then you use the function or the var $pageTitle in some page
 before calling functions.php or init.php
+
+----------------------------------------------
+
+// v19 : Start Creating Members Page : 
+
+Very important video to know how to pass the loged user in other pages by session
+
+
+
+
+
+
 */

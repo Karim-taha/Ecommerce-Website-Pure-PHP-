@@ -14,13 +14,20 @@
         $hashedPassword = sha1($password);
 
         // Check if user exists in database :
-            $stmt = $conn->prepare("SELECT username, password FROM users WHERE username = ? AND password = ? AND group_id = 1 ;");
+            $stmt = $conn->prepare("SELECT user_id, username, password 
+                                    FROM users 
+                                    WHERE username = ? 
+                                    AND password = ? 
+                                    AND group_id = 1 
+                                    LIMIT 1;");
             $stmt->execute([$username, $hashedPassword]);
+            $row = $stmt->fetch();  // Get the data from database as an array to loop on
             $count = $stmt->rowCount();
 
             if($count > 0){
                 $_SESSION['username'] = $username;
-                if(isset($_SESSION['username'])){
+                $_SESSION['user_id'] = $row['user_id'];
+                if(isset($_SESSION['user_id'])){
                     header("Location: dashboard.php");
                     exit();
                 }
