@@ -2,6 +2,7 @@
     session_start();
     
     $noNavbarInIndexPage = '';  // We will use this var in init.php
+    $pageTitle ='Login';        // Describe Page Title
     
     include "init.php";  // The file that contain all pathes & libraries. 
 

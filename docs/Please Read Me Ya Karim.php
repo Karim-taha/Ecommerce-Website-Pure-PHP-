@@ -168,4 +168,31 @@ output error
 php
 php.net/session_destroy
 
+--------------------------------------------
+
+// v18 : Create Our first function getTitle();
+
+Create function getTitle() in functions.php
+// Do not forget to call functions.php in every page or in init.php if you have one and put the 
+var $pageTitle beneath it.
+
+// Create Title function that echo yhe page title :
+// in case the page has var $pageTitle.
+function getTitle(){
+    global $pageTitle;
+    if(isset($pageTitle)){
+        echo $pageTitle;
+    } else {
+        echo "Default";
+    }
+}
+
+then create $pageTitle var in every page :
+in index.php : $pageTitle = 'Login';     // 
+in dashboard.php : $pageTitle = 'Dashboard'; 
+
+then go to header and wright in <title><?php getTitle(); >?</title>
+
+// If you have error (uncaught function ) then you use the function or the var $pageTitle in some page
+before calling functions.php or init.php
 */

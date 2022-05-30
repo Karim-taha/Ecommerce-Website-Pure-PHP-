@@ -4,6 +4,9 @@ include 'connect.php';
 // Templates Directory :
 $template = 'includes/templates/';
 
+// Functions Directory :
+$functions = "includes/functions/";
+
 // CSS Directory :
 $css = 'layout/css/';
 
@@ -13,10 +16,12 @@ $js = 'layout/js/';
 // Language Firectory :
 $lang = 'includes/languages/';
 
+
 // Fontawesome CDN :
 $fontawesomeCdn = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css";
 
 include $lang . 'english.php';   // استدعي فايل اللغة ديما الاول قبل ما يستدعي أي صفحة تانية
+include $functions . "functions.php";
 include $template . "header.php";
 
 // Include navbar in all pages except index.php (login to dashboard)
