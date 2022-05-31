@@ -221,5 +221,12 @@ Very important video to know how to pass the loged user in other pages by sessio
 complete username that entered before.
 <input type ="password" autocomplete="new-pass">  // autocomplete prevent browsers from saving passwords
 
+------------------------------------------------
+
+v21 : Members page : Code Edit Page :
+
+
+
+
 
 */
