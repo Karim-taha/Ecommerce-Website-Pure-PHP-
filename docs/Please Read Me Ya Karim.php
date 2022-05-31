@@ -212,9 +212,14 @@ before calling functions.php or init.php
 
 Very important video to know how to pass the loged user in other pages by session
 
+-----------------------------------------------
+
+// v20 : Members page : Design Edit Page :
 
 
-
+<input type ="username" autocomplete="off">  // autocomplete prevent browsers from
+complete username that entered before.
+<input type ="password" autocomplete="new-pass">  // autocomplete prevent browsers from saving passwords
 
 
 */
