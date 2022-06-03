@@ -45,9 +45,10 @@
 
             <div class="container">
                 <div class="row justify-content-center">
-                <form class="form-horizontal" action="">
+                <form class="form-horizontal" action="?do=Update" method="POST">
                     <!-- Start username -->
                     <div class="form-group mb-4">
+                        <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
                         <label for="" class="col-sm-2 mb-1 control-label">Username</label>
                         <div class="col-sm-10 col-md-4">
                             <input type="text" name="username" value="<?php echo $row['username']; ?>" class="form-control" autocomplete="off">
@@ -81,7 +82,7 @@
                     <!-- Start Submit Button -->
                     <div class="form-group mt-3">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <input type="text" value="Save" class="btn btn-primary">
+                            <input type="submit" value="Save" class="btn btn-primary">
                         </div>
                     </div>
                     <!-- End Submit Button -->
@@ -98,7 +99,31 @@
                echo "You are in the Insert page";
                echo "<br>";
                echo "<a href='test.php?do=Manage'>Manage Page</a>";
-        }else{
+        } elseif($do == 'Update'){   // Update Page
+            echo "<h1 class='text-center mt-4'>Edit Member</h1>";
+
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                // Get data from the form :
+                    $id = $_POST['user_id'];
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $email = $_POST['email'];
+                    $fullname = $_POST['fullname'];
+
+                    // Update the database with this info :
+                    $stmt = $conn->prepare("UPDATE users SET username = ? , email = ? 
+                    , fullname = ? 
+                    WHERE user_id = ? ");
+                    $stmt->execute(array($username, $email, $fullname, $id));
+
+                    // Show success message :
+                    echo $stmt->rowCount() . "Record Updated";
+
+            }else{
+                echo "You can not access this page directly";
+            }
+
+        } else{
             echo "There is no page with this name";
         }
 
