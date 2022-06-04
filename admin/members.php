@@ -59,7 +59,8 @@
                     <div class="form-group mb-4">
                         <label for="" class="col-sm-2 mb-1 control-label">Password</label>
                         <div class="col-sm-10 col-md-4">
-                            <input type="password" name="password" class="form-control">
+                            <input type="hidden" name="oldPassword" value="<?php echo $row['password']; ?>">
+                            <input type="password" name="newPassword" class="form-control">
                         </div>
                     </div>
                     <!-- End password -->
@@ -106,15 +107,23 @@
                 // Get data from the form :
                     $id = $_POST['user_id'];
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
+                    $password = $_POST['newPassword'];
                     $email = $_POST['email'];
                     $fullname = $_POST['fullname'];
 
+                    // Password Trick :
+                    $pass = '';
+                    if(empty($_POST['newPassword'])){
+                        $pass = $_POST['oldPassword'];
+                    } else{
+                        $pass = sha1($password);
+                    }
+
                     // Update the database with this info :
-                    $stmt = $conn->prepare("UPDATE users SET username = ? , email = ? 
+                    $stmt = $conn->prepare("UPDATE users SET username = ? , password = ? , email = ? 
                     , fullname = ? 
                     WHERE user_id = ? ");
-                    $stmt->execute(array($username, $email, $fullname, $id));
+                    $stmt->execute(array($username, $pass , $email, $fullname, $id));
 
                     // Show success message :
                     echo $stmt->rowCount() . "Record Updated";
