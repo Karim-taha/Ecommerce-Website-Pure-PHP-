@@ -17,4 +17,13 @@ $(function () {
         $(this).attr('placeholder', $(this).attr('data-text'));
     });
 
+    // Add (*) on required fileds in Edit user form: 
+    // Important Note : the function did not work with me so I did it with span in <label> in the form in members page.
+
+    // $('input').each(function (){
+    //     if($(this).attr('required') === 'required'){
+    //         $(this).after('<span class="asterisk">*</span>');
+    //     }
+    // });
+
 });

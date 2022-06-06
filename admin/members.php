@@ -49,9 +49,9 @@
                     <!-- Start username -->
                     <div class="form-group mb-4">
                         <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
-                        <label for="" class="col-sm-2 mb-1 control-label">Username</label>
+                        <label for="" class="col-sm-2 mb-1 control-label">Username <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
-                            <input type="text" name="username" value="<?php echo $row['username']; ?>" class="form-control" autocomplete="off">
+                            <input type="text" name="username" value="<?php echo $row['username']; ?>" class="form-control" autocomplete="off" required="required">
                         </div>
                     </div>
                     <!-- End username -->
@@ -60,23 +60,23 @@
                         <label for="" class="col-sm-2 mb-1 control-label">Password</label>
                         <div class="col-sm-10 col-md-4">
                             <input type="hidden" name="oldPassword" value="<?php echo $row['password']; ?>">
-                            <input type="password" name="newPassword" class="form-control">
+                            <input type="password" name="newPassword" class="form-control" placeholder="Leave blank if you don't want to change it.">
                         </div>
                     </div>
                     <!-- End password -->
                     <!-- Start Email -->
                     <div class="form-group mb-4">
-                        <label for="" class="col-sm-2 mb-1 control-label">Email</label>
+                        <label for="" class="col-sm-2 mb-1 control-label">Email <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
-                            <input type="Email" name="email" value="<?php echo $row['email']; ?>" class="form-control">
+                            <input type="Email" name="email" value="<?php echo $row['email']; ?>" class="form-control" required="required">
                         </div>
                     </div>
                     <!-- End Email -->
                     <!-- Start Fullname -->
                     <div class="form-group mb-4">
-                        <label for="" class="col-sm-2 mb-1 control-label">Fullname</label>
+                        <label for="" class="col-sm-2 mb-1 control-label">Fullname <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
-                            <input type="text" name="fullname" value="<?php echo $row['fullname']; ?>" class="form-control">
+                            <input type="text" name="fullname" value="<?php echo $row['fullname']; ?>" class="form-control" required="required">
                         </div>
                     </div>
                     <!-- End Fullname -->
@@ -102,6 +102,7 @@
                echo "<a href='test.php?do=Manage'>Manage Page</a>";
         } elseif($do == 'Update'){   // Update Page
             echo "<h1 class='text-center mt-4'>Edit Member</h1>";
+            echo "<div class='container'>";
 
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 // Get data from the form :
@@ -118,30 +119,35 @@
                     // Validate the form : 
                     $formErrors = [];
                     if(empty($username)){
-                        $formErrors[] = "Username can't be empty";
+                        $formErrors[] = "<div class='alert alert-danger'>Username can't be empty</div>";
                     } 
                     if(empty($email)){
-                        $formErrors[] = "Email can't be empty";
+                        $formErrors[] = "<div class='alert alert-danger'>Email can't be empty</div>";
                     } 
                     if (empty($fullname)) {
-                        $formErrors[] = "Fullname can't be empty";
+                        $formErrors[] = "<div class='alert alert-danger'>Fullname can't be empty</div>";
                     } 
+                    // Loop on Error Array and echo it if there is an error or more.
                     foreach($formErrors as $error){
-                        echo $error . "<br>";
+                        echo $error;
                     }
 
-                    // Update the database with this info :
-                    // $stmt = $conn->prepare("UPDATE users SET username = ? , password = ? , email = ? 
-                    // , fullname = ? 
-                    // WHERE user_id = ? ");
-                    // $stmt->execute(array($username, $pass , $email, $fullname, $id));
+                    // If no Errors Send data to database :
+                    if(empty($formErrors)){
 
-                    // Show success message :
-                    //echo $stmt->rowCount() . "Record Updated";
+                        $stmt = $conn->prepare("UPDATE users SET username = ? , password = ? , email = ? 
+                        , fullname = ? 
+                        WHERE user_id = ? ");
+                        $stmt->execute(array($username, $pass , $email, $fullname, $id));
+    
+                        // Show success message :
+                        echo "<div class='alert alert-success text-cnter'>Record Updated</div>";
+                    }
 
             }else{
                 echo "You can not access this page directly";
             }
+            echo "</div>";
 
         } else{
             echo "There is no page with this name";

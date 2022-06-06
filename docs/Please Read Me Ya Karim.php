@@ -235,8 +235,10 @@ v23 : Members Page : Code Update page p2 ( Password Part )
 
 ------------------------------------------------
 
-v24 : Members Page : Update Page : Validation (Client - Server) side.
+v24 : Members Page : Update Page : Validation (Server) side.
 
+------------------------------------------------
 
+v25 : Members Page : Update Page : Validation (Client) side & Style Errors.
 
 */
