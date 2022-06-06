@@ -13,7 +13,7 @@
           <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Items'); ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Members'); ?></a>
+          <a class="nav-link active" aria-current="page" href="members.php"><?php echo lang('Members'); ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Statistics'); ?></a>

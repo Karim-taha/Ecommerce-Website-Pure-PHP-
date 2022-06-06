@@ -22,9 +22,68 @@
             $do = "Manage";
         }
 
-        if($do == 'Manage'){
-            // Manage Page : 
-           }elseif($do == 'Edit'){      // Edit Page  
+        if($do == 'Manage'){  // Manage Page
+            
+            echo "Hello in Manage Page";
+            echo "<a href='members.php?do=Add'>Add New Member</a>";
+            
+        } elseif($do == 'Add'){  // Add Members Page ?>
+
+<h1 class="text-center mt-4">Add Member</h1>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                <form class="form-horizontal" action="?do=Insert" method="POST">
+                    <!-- Start username -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Username <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="text" name="username" class="form-control" autocomplete="off" required="required" placeholder="Username to login with.">
+                        </div>
+                    </div>
+                    <!-- End username -->
+                    <!-- Start password -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Password <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="password" name="password" class="form-control" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <!-- End password -->
+                    <!-- Start Email -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Email <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="Email" name="email" class="form-control" required="required" placeholder="Email must be valid.">
+                        </div>
+                    </div>
+                    <!-- End Email -->
+                    <!-- Start Fullname -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Fullname <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="text" name="fullname" class="form-control" required="required" placeholder="The name appears in your profile.">
+                        </div>
+                    </div>
+                    <!-- End Fullname -->
+                    <!-- Start Submit Button -->
+                    <div class="form-group mt-3">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Add Member" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <!-- End Submit Button -->
+                </form>
+                </div>
+            </div>
+
+
+           <?php 
+           } elseif ($do == 'Insert') {  // Insert Page
+           
+            echo $_POST['username'] . " " . $_POST['password'] . " " . $_POST['email'] . " " . $_POST['fullname'];
+
+           } elseif($do == 'Edit'){      // Edit Page  
 
             // Check if get user_id from request from the link & check if the user_id is a number
             // and if it is not a number then user_id = 0
@@ -60,7 +119,7 @@
                         <label for="" class="col-sm-2 mb-1 control-label">Password</label>
                         <div class="col-sm-10 col-md-4">
                             <input type="hidden" name="oldPassword" value="<?php echo $row['password']; ?>">
-                            <input type="password" name="newPassword" class="form-control" placeholder="Leave blank if you don't want to change it.">
+                            <input type="password" name="newPassword" class="form-control" autocomplete="new-password" placeholder="Leave blank if you don't want to change it.">
                         </div>
                     </div>
                     <!-- End password -->

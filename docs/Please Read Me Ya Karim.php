@@ -241,4 +241,8 @@ v24 : Members Page : Update Page : Validation (Server) side.
 
 v25 : Members Page : Update Page : Validation (Client) side & Style Errors.
 
+------------------------------------------------
+
+v26 : Members Page : Add Page (Design)
+
 */
