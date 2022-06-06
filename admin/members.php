@@ -112,21 +112,32 @@
                     $fullname = $_POST['fullname'];
 
                     // Password Trick :
-                    $pass = '';
-                    if(empty($_POST['newPassword'])){
-                        $pass = $_POST['oldPassword'];
-                    } else{
-                        $pass = sha1($password);
+                    // Condition ? true : false;
+                    $pass = empty($_POST['newPassword']) ? $_POST['oldPassword'] : sha1($password);
+
+                    // Validate the form : 
+                    $formErrors = [];
+                    if(empty($username)){
+                        $formErrors[] = "Username can't be empty";
+                    } 
+                    if(empty($email)){
+                        $formErrors[] = "Email can't be empty";
+                    } 
+                    if (empty($fullname)) {
+                        $formErrors[] = "Fullname can't be empty";
+                    } 
+                    foreach($formErrors as $error){
+                        echo $error . "<br>";
                     }
 
                     // Update the database with this info :
-                    $stmt = $conn->prepare("UPDATE users SET username = ? , password = ? , email = ? 
-                    , fullname = ? 
-                    WHERE user_id = ? ");
-                    $stmt->execute(array($username, $pass , $email, $fullname, $id));
+                    // $stmt = $conn->prepare("UPDATE users SET username = ? , password = ? , email = ? 
+                    // , fullname = ? 
+                    // WHERE user_id = ? ");
+                    // $stmt->execute(array($username, $pass , $email, $fullname, $id));
 
                     // Show success message :
-                    echo $stmt->rowCount() . "Record Updated";
+                    //echo $stmt->rowCount() . "Record Updated";
 
             }else{
                 echo "You can not access this page directly";

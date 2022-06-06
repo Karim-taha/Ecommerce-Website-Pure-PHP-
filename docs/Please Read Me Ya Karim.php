@@ -233,7 +233,9 @@ v22 : Members Page : Code Update page p1 ( Send form data from Edit Page to Upda
 
 v23 : Members Page : Code Update page p2 ( Password Part )
 
+------------------------------------------------
 
+v24 : Members Page : Update Page : Validation (Client - Server) side.
 
 
 
