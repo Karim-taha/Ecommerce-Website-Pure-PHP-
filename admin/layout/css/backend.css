@@ -31,3 +31,15 @@ body{
 }
 
 /* End Login Form */
+
+/* Start Members Page */
+.hello{
+    color: red;
+}
+.show-pass{
+    position: absolute;
+    right: 833px;
+    top: 265px;
+}
+
+/* End Members Page */

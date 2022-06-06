@@ -26,4 +26,12 @@ $(function () {
     //     }
     // });
 
+    // Convert Password Field to Text Field on hover the eye icon:
+    var passField = $('.password');
+    $('.show-pass').hover(function () {
+        passField.attr('type', 'text');
+    }, function () {
+        passField.attr('type', 'password');
+    });
+
 });

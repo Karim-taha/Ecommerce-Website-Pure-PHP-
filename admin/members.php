@@ -11,26 +11,19 @@
     session_start();
 
     $pageTitle = "Members";
-
+    
     if(isset($_SESSION['username'])){
         include 'init.php';
-
         $do = '';
         if(isset($_GET['do'])){
             $do = $_GET['do'];
-        } else {
-            $do = "Manage";
-        }
+        }else{$do = "Manage";}
 
         if($do == 'Manage'){  // Manage Page
-            
             echo "Hello in Manage Page";
             echo "<a href='members.php?do=Add'>Add New Member</a>";
-            
         } elseif($do == 'Add'){  // Add Members Page ?>
-
-<h1 class="text-center mt-4">Add Member</h1>
-
+            <h1 class="text-center mt-4">Add Member</h1>
             <div class="container">
                 <div class="row justify-content-center">
                 <form class="form-horizontal" action="?do=Insert" method="POST">
@@ -46,7 +39,8 @@
                     <div class="form-group mb-4">
                         <label for="" class="col-sm-2 mb-1 control-label">Password <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
-                            <input type="password" name="password" class="form-control" autocomplete="new-password">
+                            <input type="password" name="password" class="password form-control" required="required" autocomplete="new-password">
+                            <i class="show-pass fa fa-eye fa-1x"></i>
                         </div>
                     </div>
                     <!-- End password -->
@@ -76,32 +70,65 @@
                 </form>
                 </div>
             </div>
-
-
            <?php 
-           } elseif ($do == 'Insert') {  // Insert Page
-           
-            echo $_POST['username'] . " " . $_POST['password'] . " " . $_POST['email'] . " " . $_POST['fullname'];
+           } elseif ($do == 'Insert') { // Insert Page
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                echo "<h1 class='text-center mt-4'>Insert Member</h1>";
+                echo "<div class='container'>";
+                // Get data from the form :
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $email = $_POST['email'];
+                    $fullname = $_POST['fullname'];
 
-           } elseif($do == 'Edit'){      // Edit Page  
+                    // Password Trick :
+                    // Condition ? true : false;
+                    $hashedPass = sha1($password);
 
+                    // Validate the form : 
+                    $formErrors = [];
+                    if(empty($username)){
+                        $formErrors[] = "Username can't be empty";
+                    } 
+                    if(empty($password)){
+                        $formErrors[] = "Password can't be empty";
+                    } 
+                    if(empty($email)){
+                        $formErrors[] = "Email can't be empty";
+                    } 
+                    if (empty($fullname)) {
+                        $formErrors[] = "Fullname can't be empty";
+                    } 
+                    // Loop on Error Array and echo it if there is an error or more.
+                    foreach($formErrors as $error){
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
+                    }
+
+                    // If no Errors Send data to database :
+                    if(empty($formErrors)){
+                        $stmt = $conn->prepare("INSERT INTO users (username, password, fullname VALUES (?, ?, ?, ?);"); 
+                        $stmt->execute(array($username, $hashedPass , $email, $fullname));
+                        // Show success message :
+                        echo "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
+                    }
+
+            } else{
+                echo "You can not access this page directly";
+            }
+            echo "</div>";
+        } elseif($do == 'Edit'){      // Edit Page  
             // Check if get user_id from request from the link & check if the user_id is a number
             // and if it is not a number then user_id = 0
             $userId = isset($_GET['user_id']) && is_numeric($_GET['user_id']) ? intval($_GET['user_id']) : 0;
-
             // Select all data depending on the id above :
             $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ? LIMIT 1;");
             // Excute the query :
             $stmt->execute([$userId]);
             $row = $stmt->fetch();  // Get the data from database as an array to loop on
             $count = $stmt->rowCount();
-
                 // if there is a user with this id is in database show the edit form : 
                 if($count > 0){ ?>
-                
-               
             <h1 class="text-center mt-4">Edit Member</h1>
-
             <div class="container">
                 <div class="row justify-content-center">
                 <form class="form-horizontal" action="?do=Update" method="POST">
@@ -149,16 +176,11 @@
                 </form>
                 </div>
             </div>
-
            <?php
            // if there is no such id show error message : 
            } else {
                echo "There is no such ID";
            }
-        }elseif($do == 'Insert'){
-               echo "You are in the Insert page";
-               echo "<br>";
-               echo "<a href='test.php?do=Manage'>Manage Page</a>";
         } elseif($do == 'Update'){   // Update Page
             echo "<h1 class='text-center mt-4'>Edit Member</h1>";
             echo "<div class='container'>";
@@ -178,17 +200,17 @@
                     // Validate the form : 
                     $formErrors = [];
                     if(empty($username)){
-                        $formErrors[] = "<div class='alert alert-danger'>Username can't be empty</div>";
+                        $formErrors[] = "Username can't be empty";
                     } 
                     if(empty($email)){
-                        $formErrors[] = "<div class='alert alert-danger'>Email can't be empty</div>";
+                        $formErrors[] = "Email can't be empty";
                     } 
                     if (empty($fullname)) {
-                        $formErrors[] = "<div class='alert alert-danger'>Fullname can't be empty</div>";
+                        $formErrors[] = "Fullname can't be empty";
                     } 
                     // Loop on Error Array and echo it if there is an error or more.
                     foreach($formErrors as $error){
-                        echo $error;
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
                     }
 
                     // If no Errors Send data to database :
@@ -212,21 +234,10 @@
             echo "There is no page with this name";
         }
 
-
-
         include $template . "footer.php";
+        
     } else {
         header("Location: index.php");
         exit();
     }
-
-
-
-
-
-
-
-
-
-
-
+    

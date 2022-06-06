@@ -245,4 +245,8 @@ v25 : Members Page : Update Page : Validation (Client) side & Style Errors.
 
 v26 : Members Page : Add Page (Design)
 
+------------------------------------------------
+
+v27 : Members Page : Insert Page (code Part 1) 
+
 */
