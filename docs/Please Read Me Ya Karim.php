@@ -253,7 +253,9 @@ v27 : Members Page : Insert Page (code Part 1) // Handle Errors.
 
 v28 : Members Page : Insert Page (code Part 2) // Insert the new user to database.
 
+------------------------------------------------
 
+v29 : Members Page : Manage Page (Design)
 
 
 */

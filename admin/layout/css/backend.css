@@ -42,4 +42,12 @@ body{
     top: 250px;
 }
 
+.main-table tr:first-child td {
+    background-color: #333;
+    color: #FFF;
+
+}
+
+
+
 /* End Members Page */
