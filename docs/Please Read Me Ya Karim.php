@@ -247,6 +247,13 @@ v26 : Members Page : Add Page (Design)
 
 ------------------------------------------------
 
-v27 : Members Page : Insert Page (code Part 1) 
+v27 : Members Page : Insert Page (code Part 1) // Handle Errors.
+
+------------------------------------------------
+
+v28 : Members Page : Insert Page (code Part 2) // Insert the new user to database.
+
+
+
 
 */

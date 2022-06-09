@@ -106,7 +106,7 @@
 
                     // If no Errors Send data to database :
                     if(empty($formErrors)){
-                        $stmt = $conn->prepare("INSERT INTO users (username, password, fullname VALUES (?, ?, ?, ?);"); 
+                        $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname) VALUES (?, ?, ?, ?);"); 
                         $stmt->execute(array($username, $hashedPass , $email, $fullname));
                         // Show success message :
                         echo "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
