@@ -19,7 +19,15 @@
             $do = $_GET['do'];
         }else{$do = "Manage";}
 
-        if($do == 'Manage'){  // Manage Page  ?>
+        if($do == 'Manage'){  // Manage Page  
+        
+            // Select * users Except Admins : 
+        $stmt = $conn->prepare("SELECT * FROM users WHERE group_id != 1 ;");
+        $stmt->execute();
+        $rows = $stmt->fetchAll();
+        
+        
+        ?>
             <h1 class="text-center mt-4">Manage Page</h1>
             <div class="container">
                 <div class="table-responsive">
@@ -33,6 +41,23 @@
                             <td>Registered Date</td>
                             <td>Control</td>
                         </tr>
+                        <?php 
+                            foreach($rows as $row){
+
+                                echo "<tr>";
+                                    echo "<td>" . $row['user_id'] . "</td>"; 
+                                    echo "<td>" . $row['username'] . "</td>";
+                                    echo "<td>" . $row['email'] . "</td>";
+                                    echo "<td>" . $row['fullname'] . "</td>";
+                                    echo "<td>" . "</td>";
+                                    echo "<td>
+                                    <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'>Edit</a>" . " " .
+                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger'>Delete</a>" .
+                                    "</td>";
+                                echo "</tr>";
+                            }
+
+                        ?>
                         <tr>
                             <td></td>
                             <td></td>
@@ -40,54 +65,12 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                
                             </td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                        
+                        
+                        
                     </table>
                 </div>
                 <a href='members.php?do=Add' class="btn btn-primary"><i class="fa fa-plus"></i> Add New Member</a>

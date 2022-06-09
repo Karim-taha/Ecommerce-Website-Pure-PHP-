@@ -257,5 +257,9 @@ v28 : Members Page : Insert Page (code Part 2) // Insert the new user to databas
 
 v29 : Members Page : Manage Page (Design)
 
+------------------------------------------------
+
+v30 : Members Page : Cdoe Manage Page
+
 
 */
