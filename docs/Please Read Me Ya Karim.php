@@ -265,5 +265,24 @@ v30 : Members Page : Cdoe Manage Page
 
 v31 : Members Page : Code Delete Page
 
+------------------------------------------------
+
+v32 : Create Home Redirect Dynamic Function :
+
+// It is a function I give her the error message and Time but time is not necessary 
+because it has a default value.
+
+function redirectHome ($errMsg, $seconds = 3){
+    echo "<div class='alert alert-danger'>$errMsg</div>";
+    echo "<div class='alert alert-info'>You will be redirecting to Home Page after $seconds seconds.</div>";
+
+    header("refresh:$seconds;url=index.php"); // I used (refresh ) instead of (Location) because the redirecting is after time not immediatelt.
+    exit();
+}
+
+To use it : in members page for example in Insert section : 
+
+$ErrMsg = "You can not access this page directly";
+redirectHome($ErrMsg);
 
 */

@@ -166,7 +166,9 @@
                     }
 
             } else{
-                echo "You can not access this page directly";
+                $ErrMsg = "You can not access this page directly";
+
+                redirectHome($ErrMsg);
             }
             echo "</div>";
         } elseif($do == 'Edit'){      // Edit Page  
