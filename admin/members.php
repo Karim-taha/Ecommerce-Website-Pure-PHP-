@@ -13,7 +13,7 @@
     $pageTitle = "Members";
     
     if(isset($_SESSION['username'])){
-        include 'init.php';
+        include "init.php";  // The file that contain all pathes & libraries.
         $do = '';
         if(isset($_GET['do'])){
             $do = $_GET['do'];
@@ -52,7 +52,7 @@
                                     echo "<td>" . "</td>";
                                     echo "<td>
                                     <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'>Edit</a>" . " " .
-                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger'>Delete</a>" .
+                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'>Delete</a>" .
                                     "</td>";
                                 echo "</tr>";
                             }
@@ -283,7 +283,28 @@
             }
             echo "</div>";
 
-        } else{
+        } elseif($do == 'Delete'){   // Delete Member Page :
+        // Check if get user_id from request from the link & check if the user_id is a number
+            // and if it is not a number then user_id = 0
+            $userId = isset($_GET['user_id']) && is_numeric($_GET['user_id']) ? intval($_GET['user_id']) : 0;
+            // Select all data depending on the id above :
+            $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ? LIMIT 1;");
+            // Excute the query :
+            $stmt->execute([$userId]);
+            $count = $stmt->rowCount();
+            // if there is a user with this id is in database show the edit form : 
+                if($count > 0){ 
+                    $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?;");
+                    $stmt->execute([$userId]);
+                    // Show success message :
+                    echo "<div class='alert alert-success text-cnter'>Record Deleted</div>";
+
+                }else{
+                    echo "This id doesn't exist.";
+                }
+        } 
+        
+        else{
             echo "There is no page with this name";
         }
 
@@ -293,4 +314,4 @@
         header("Location: index.php");
         exit();
     }
-    
+

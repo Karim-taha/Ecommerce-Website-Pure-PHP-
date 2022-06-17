@@ -34,4 +34,9 @@ $(function () {
         passField.attr('type', 'password');
     });
 
+    // Confirm Deleting User :
+    $('.confirm').click(function () {
+        return confirm('Are You Sure?');
+    });
+
 });
