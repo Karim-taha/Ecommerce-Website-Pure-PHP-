@@ -285,4 +285,8 @@ To use it : in members page for example in Insert section :
 $ErrMsg = "You can not access this page directly";
 redirectHome($ErrMsg);
 
+------------------------------------------------
+
+v33 : Add some Design to Main Table.
+
 */

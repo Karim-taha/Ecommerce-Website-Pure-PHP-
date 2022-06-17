@@ -28,7 +28,7 @@
         
         
         ?>
-            <h1 class="text-center mt-4">Manage Page</h1>
+            <h1 class="text-center mt-4 mb-4">Manage Page</h1>
             <div class="container">
                 <div class="table-responsive">
                     <table class="main-table table text-center table-border">
@@ -51,8 +51,8 @@
                                     echo "<td>" . $row['fullname'] . "</td>";
                                     echo "<td>" . "</td>";
                                     echo "<td>
-                                    <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'>Edit</a>" . " " .
-                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'>Delete</a>" .
+                                    <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>" . " " .
+                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete</a>" .
                                     "</td>";
                                 echo "</tr>";
                             }
@@ -73,7 +73,7 @@
                         
                     </table>
                 </div>
-                <a href='members.php?do=Add' class="btn btn-primary"><i class="fa fa-plus"></i> Add New Member</a>
+                <a href='members.php?do=Add' class="btn btn-primary"><i class="fa fa-plus"></i> New Member</a>
             </>
         <?php } elseif($do == 'Add'){  // Add Members Page ?>
             <h1 class="text-center mt-4">Add Member</h1>
