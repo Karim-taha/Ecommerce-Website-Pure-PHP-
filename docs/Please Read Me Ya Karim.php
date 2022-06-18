@@ -289,4 +289,27 @@ redirectHome($ErrMsg);
 
 v33 : Add some Design to Main Table.
 
+------------------------------------------------
+
+v34 : Create Dynamic (Check Item) function :
+
+/*
+** Create Check Item function
+** $select : checks if the [Example: username - item - category .. ] exists in database or not
+** $from   : Database table to select from [Example: users - items - categories .. ]
+** $value  : The value of select [Example: Karim - Television - Electronics .. ]
+*/
+
+/*
+function checkItem($select, $from, $value){
+    global $conn;
+
+    $statement = $conn->prepare("SELECT $select FROM $from WHERE $select = ?");
+    $statement->execute([$value]);
+    $count = $statement->rowCount();
+    return $count;
+}
+
+and to use it go to members page in add new user section.
+
 */

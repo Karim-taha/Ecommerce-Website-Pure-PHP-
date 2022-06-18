@@ -27,3 +27,19 @@ function redirectHome ($errMsg, $seconds = 3){
     header("refresh:$seconds;url=index.php"); // I used (refresh ) instead of (Location) because the redirecting is after time not immediatelt.
     exit();
 }
+
+/*
+** Create Check Item function
+** $select : checks if the [Example: username - item - category .. ] exists in database or not
+** $from   : Database table to select from [Example: users - items - categories .. ]
+** $value  : The value of select [Example: Karim - Television - Electronics .. ]
+*/
+
+function checkItem($select, $from, $value){
+    global $conn;
+
+    $statement = $conn->prepare("SELECT $select FROM $from WHERE $select = ?");
+    $statement->execute([$value]);
+    $count = $statement->rowCount();
+    return $count;
+}

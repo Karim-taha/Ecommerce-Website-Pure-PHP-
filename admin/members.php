@@ -20,7 +20,7 @@
         }else{$do = "Manage";}
 
         if($do == 'Manage'){  // Manage Page  
-        
+
             // Select * users Except Admins : 
         $stmt = $conn->prepare("SELECT * FROM users WHERE group_id != 1 ;");
         $stmt->execute();
@@ -157,12 +157,21 @@
                         echo "<div class='alert alert-danger'>" . $error . "</div>";
                     }
 
-                    // If no Errors Send data to database :
+                    
+                    // If no form errors :
                     if(empty($formErrors)){
-                        $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname) VALUES (?, ?, ?, ?);"); 
-                        $stmt->execute(array($username, $hashedPass , $email, $fullname));
-                        // Show success message :
-                        echo "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
+
+                        // Check if usersname alreay exists in database :
+                        $check= checkItem("username", "users", $username);
+    
+                        if($check == 1 ){
+                            echo "Username already exists.";
+                        } else {  // Create the new user :
+                                $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname) VALUES (?, ?, ?, ?);"); 
+                                $stmt->execute(array($username, $hashedPass , $email, $fullname));
+                                // Show success message :
+                                echo "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
+                            }
                     }
 
             } else{
