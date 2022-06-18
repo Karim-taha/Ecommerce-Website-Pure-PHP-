@@ -175,9 +175,8 @@
                     }
 
             } else{
-                $ErrMsg = "You can not access this page directly";
-
-                redirectHome($ErrMsg);
+                $theMsg = "<div class='alert alert-danger'>You can not access this page directly</div>";
+                redirectHome($theMsg, 'referer');
             }
             echo "</div>";
         } elseif($do == 'Edit'){      // Edit Page  
@@ -286,7 +285,8 @@
                         $stmt->execute(array($username, $pass , $email, $fullname, $id));
     
                         // Show success message :
-                        echo "<div class='alert alert-success text-cnter'>Record Updated</div>";
+                        $theMsg = "<div class='alert alert-success text-cnter'>Record Updated</div>";
+                        redirectHome($theMsg, 'referer');
                     }
 
             }else{

@@ -312,4 +312,8 @@ function checkItem($select, $from, $value){
 
 and to use it go to members page in add new user section.
 
+--------------------------------------------
+
+v35 : Update the redirect function : 
+
 */
