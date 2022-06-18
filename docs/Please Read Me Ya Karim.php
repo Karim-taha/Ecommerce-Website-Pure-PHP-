@@ -316,4 +316,8 @@ and to use it go to members page in add new user section.
 
 v35 : Update the redirect function : 
 
+--------------------------------------------
+
+v36 : Add the Redirect function to pages.
+
 */

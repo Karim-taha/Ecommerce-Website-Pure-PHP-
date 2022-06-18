@@ -170,13 +170,16 @@
                                 $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname) VALUES (?, ?, ?, ?);"); 
                                 $stmt->execute(array($username, $hashedPass , $email, $fullname));
                                 // Show success message :
-                                echo "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
+                                $theMsg = "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
+                                redirectHome($theMsg, 'referer');
                             }
                     }
 
             } else{
+                echo "<div class='container'>";
                 $theMsg = "<div class='alert alert-danger'>You can not access this page directly</div>";
                 redirectHome($theMsg, 'referer');
+                echo "</div>";
             }
             echo "</div>";
         } elseif($do == 'Edit'){      // Edit Page  
@@ -242,7 +245,11 @@
            <?php
            // if there is no such id show error message : 
            } else {
-               echo "There is no such ID";
+            echo "<div class='container'>";
+            $theMsg = "<div class='alert alert-danger'>There is no such ID</div>";
+            redirectHome($theMsg);
+            echo "</div>";
+
            }
         } elseif($do == 'Update'){   // Update Page
             echo "<h1 class='text-center mt-4'>Edit Member</h1>";
@@ -290,7 +297,8 @@
                     }
 
             }else{
-                echo "You can not access this page directly";
+                $theMsg = "<div class='alert alert-danger text-cnter'>You can not access this page directly</div>";
+                redirectHome($theMsg, 'referer');
             }
             echo "</div>";
 
@@ -308,10 +316,12 @@
                     $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?;");
                     $stmt->execute([$userId]);
                     // Show success message :
-                    echo "<div class='alert alert-success text-cnter'>Record Deleted</div>";
-
-                }else{
-                    echo "This id doesn't exist.";
+                    $theMsg = "<div class='alert alert-success text-cnter'>Record Deleted</div>";
+                        redirectHome($theMsg, 'referer');
+                        
+                    }else{
+                    $theMsg = "<div class='alert alert-danger text-cnter'>This id doesn't exist.</div>";
+                        redirectHome($theMsg);
                 }
         } 
         
