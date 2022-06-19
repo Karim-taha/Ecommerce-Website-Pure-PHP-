@@ -112,7 +112,7 @@ arabic.php
 
 Database Name : elzeroecommerce
 
-First table to create : users (8 coumns) :
+First table to create : users (8 columns) :
 1- user_id int(11) primary key auto increment not null
 2- username varchar (255)
 3- password varchar(255)
@@ -319,5 +319,9 @@ v35 : Update the redirect function :
 --------------------------------------------
 
 v36 : Add the Redirect function to pages.
+
+--------------------------------------------
+
+v37 : Members Page : Add Date
 
 */

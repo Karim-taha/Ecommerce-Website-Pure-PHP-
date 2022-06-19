@@ -49,6 +49,7 @@
                                     echo "<td>" . $row['username'] . "</td>";
                                     echo "<td>" . $row['email'] . "</td>";
                                     echo "<td>" . $row['fullname'] . "</td>";
+                                    echo "<td>" . $row['date'] . "</td>";
                                     echo "<td>" . "</td>";
                                     echo "<td>
                                     <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>" . " " .
@@ -167,7 +168,7 @@
                         if($check == 1 ){
                             echo "Username already exists.";
                         } else {  // Create the new user :
-                                $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname) VALUES (?, ?, ?, ?);"); 
+                                $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname, date) VALUES (?, ?, ?, ?, now());"); 
                                 $stmt->execute(array($username, $hashedPass , $email, $fullname));
                                 // Show success message :
                                 $theMsg = "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
