@@ -32,6 +32,37 @@ body{
 
 /* End Login Form */
 
+/* Start Dashboard Page */
+
+.home-stats .stat{
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    padding: 20px;
+    font-size: 15px;
+}
+
+.home-stats .stat span{
+    display: block;
+    font-size: 50px;
+}
+
+.latest {
+    margin-top: 30px;
+}
+
+.panel-heading{
+    background-color: #413F42;
+    padding: 5px;
+    color: white;
+}
+
+.panel-body{
+    background-color: white;
+    padding: 5px;
+}
+
+/* End Dashboard Page */
+
 /* Start Members Page */
 .hello{
     color: red;

@@ -328,4 +328,8 @@ v37 : Members Page : Add Date
 
 v38 : Members Page : Clean Up
 
+-------------------------------------------
+
+v39 : Dashboard Page : Design Layout
+
 */
