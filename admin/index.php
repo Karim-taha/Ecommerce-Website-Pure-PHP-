@@ -1,5 +1,10 @@
 <?php 
     session_start();
+
+    if(isset($_SESSION['user_id'])){
+        header("Location: dashboard.php");
+        exit();
+    }
     
     $noNavbarInIndexPage = '';  // We will use this var in init.php
     $pageTitle ='Login';        // Describe Page Title

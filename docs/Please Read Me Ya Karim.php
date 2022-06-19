@@ -324,4 +324,8 @@ v36 : Add the Redirect function to pages.
 
 v37 : Members Page : Add Date
 
+-------------------------------------------
+
+v38 : Members Page : Clean Up
+
 */

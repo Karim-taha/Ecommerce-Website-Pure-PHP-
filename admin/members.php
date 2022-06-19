@@ -166,7 +166,8 @@
                         $check= checkItem("username", "users", $username);
     
                         if($check == 1 ){
-                            echo "Username already exists.";
+                            $theMsg = "<div class='alert alert-danger'>Username already exists.</div>";
+                            redirectHome($theMsg, 'referer');
                         } else {  // Create the new user :
                                 $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname, date) VALUES (?, ?, ?, ?, now());"); 
                                 $stmt->execute(array($username, $hashedPass , $email, $fullname));
@@ -308,12 +309,10 @@
             // and if it is not a number then user_id = 0
             $userId = isset($_GET['user_id']) && is_numeric($_GET['user_id']) ? intval($_GET['user_id']) : 0;
             // Select all data depending on the id above :
-            $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ? LIMIT 1;");
-            // Excute the query :
-            $stmt->execute([$userId]);
-            $count = $stmt->rowCount();
+            // $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ? LIMIT 1;");
+            $check= checkItem("user_id", "users", $userId);
             // if there is a user with this id is in database show the edit form : 
-                if($count > 0){ 
+                if($check > 0){ 
                     $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?;");
                     $stmt->execute([$userId]);
                     // Show success message :
@@ -327,7 +326,8 @@
         } 
         
         else{
-            echo "There is no page with this name";
+            $theMsg = "<div class='alert alert-danger'>There is no page with this name</div>";
+            redirectHome($theMsg);
         }
 
         include $template . "footer.php";
