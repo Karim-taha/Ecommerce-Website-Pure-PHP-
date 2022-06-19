@@ -332,4 +332,26 @@ v38 : Members Page : Clean Up
 
 v39 : Dashboard Page : Design Layout
 
+-------------------------------------------
+
+v40 : Create Calculate Items Function :
+دي فانكشن بتعد عدد الصفوف اللي في اي جدول انا بديهالها في الداتابيز
+
+/*
+** Create a function that counts number or rows of any database schedule i give to the function.
+** $itemId -> represent the id of this schedule (Example: user_id from users - cat_id from categories).
+** $table  -> represent the table I will count its rows.
+
+// function countItems ($itemId, $table){
+//     global $conn;
+//     $stmt2 = $conn->prepare("SELECT COUNT($itemId) FROM $table");
+//     $stmt2->execute();
+
+//     return $stmt2->fetchColumn();
+
+// }
+
+// To use it in dashboard page as : 
+echo countItems ("user_id", "users");
+
 */

@@ -78,3 +78,18 @@ function checkItem($select, $from, $value){
     $count = $statement->rowCount();
     return $count;
 }
+
+/*
+** Create a function that counts number or rows of any database schedule i give to the function.
+** $itemId -> represent the id of this schedule (Example: user_id from users - cat_id from categories).
+** $table  -> represent the table I will count its rows.
+*/
+
+function countItems ($itemId, $table){
+    global $conn;
+    $stmt2 = $conn->prepare("SELECT COUNT($itemId) FROM $table");
+    $stmt2->execute();
+
+    return $stmt2->fetchColumn();
+
+}

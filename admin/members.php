@@ -50,7 +50,6 @@
                                     echo "<td>" . $row['email'] . "</td>";
                                     echo "<td>" . $row['fullname'] . "</td>";
                                     echo "<td>" . $row['date'] . "</td>";
-                                    echo "<td>" . "</td>";
                                     echo "<td>
                                     <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>" . " " .
                                     "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete</a>" .

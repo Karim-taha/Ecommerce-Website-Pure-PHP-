@@ -6,7 +6,7 @@ function lang($phrase)
     static $lang = array(
 
         // Navbar Page :
-        'HOME'              => 'Karim Shop',
+        'HOME'              => 'Home',
         'CATEGORIES'        => 'Catgories',
         'Items'             => 'Items',
         'Members'           => 'Members',
