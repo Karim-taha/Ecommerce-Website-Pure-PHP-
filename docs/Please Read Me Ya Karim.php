@@ -362,4 +362,8 @@ v41 : Dashboard Page : Design and Links
 
 v42 : Members Page : Manage Pending 
 
+--------------------------------------------
+
+v43 : Members Page : Activate Pending Members
+
 */

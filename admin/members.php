@@ -62,7 +62,7 @@
                                     "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete</a>";
                                     
                                     if($row['regstatus'] == 0){
-                                        echo "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-info activate'><i class='fa fa-close'></i> Activate</a>";
+                                        echo "<a href='members.php?do=Activate&user_id=". $row['user_id']. "'class='btn btn-info activate'><i class='fa fa-close'></i> Activate</a>";
                                     }
 
 
@@ -335,7 +335,26 @@
                     $theMsg = "<div class='alert alert-danger text-cnter'>This id doesn't exist.</div>";
                         redirectHome($theMsg);
                 }
-        } 
+        } elseif($do = 'Activate'){  // Activate Member Page
+        // Check if get user_id from request from the link & check if the user_id is a number
+            // and if it is not a number then user_id = 0
+            $userId = isset($_GET['user_id']) && is_numeric($_GET['user_id']) ? intval($_GET['user_id']) : 0;
+            // Select all data depending on the id above :
+            // $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ? LIMIT 1;");
+            $check= checkItem("user_id", "users", $userId);
+            // if there is a user with this id is in database show the edit form : 
+                if($check > 0){ 
+                    $stmt = $conn->prepare("UPDATE users SET regstatus = 1 WHERE user_id = ?;");
+                    $stmt->execute([$userId]);
+                    // Show success message :
+                    $theMsg = "<div class='alert alert-success text-cnter'>User Activated</div>";
+                        redirectHome($theMsg, 'referer');
+                        
+                    }else{
+                    $theMsg = "<div class='alert alert-danger text-cnter'>This id doesn't exist.</div>";
+                        redirectHome($theMsg);
+                }
+        }
         
         else{
             $theMsg = "<div class='alert alert-danger'>There is no page with this name</div>";
