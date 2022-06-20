@@ -168,7 +168,7 @@
                             $theMsg = "<div class='alert alert-danger'>Username already exists.</div>";
                             redirectHome($theMsg, 'referer');
                         } else {  // Create the new user :
-                                $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname, date) VALUES (?, ?, ?, ?, now());"); 
+                                $stmt = $conn->prepare("INSERT INTO users (username, password, email, fullname, regstatus, date) VALUES (?, ?, ?, ?, 1, now());"); 
                                 $stmt->execute(array($username, $hashedPass , $email, $fullname));
                                 // Show success message :
                                 $theMsg = "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";

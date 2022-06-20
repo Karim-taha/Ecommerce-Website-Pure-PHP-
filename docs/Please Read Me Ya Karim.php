@@ -354,4 +354,8 @@ v40 : Create Calculate Items Function :
 // To use it in dashboard page as : 
 echo countItems ("user_id", "users");
 
+--------------------------------------------
+
+v41 : Dashboard Page : Design and Links 
+
 */

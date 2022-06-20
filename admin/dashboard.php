@@ -8,17 +8,26 @@
             <div class="container home-stats text-center">
                 <h1 class="mt-3 mb-4">Dashboard</h1>
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="stat">Total Members <span><?php echo countItems ("user_id", "users"); ?></span></div>
+                        <div class="col-md-3">
+                            <div class="stat st-members">Total Members 
+                                <span><?php echo countItems ("user_id", "users"); ?></span>
+                                <a href="members.php">See All</a>
+                            </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="stat">Pending Members <span>20</span></div>
+                        <div class="stat st-pending">Pending Members <span>20</span>
+                        <a href="#">See All</a>
+                    </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="stat">Total Items <span>2000</span></div>
+                        <div class="stat st-items">Total Items <span>2000</span>
+                        <a href="#">See All</a>
+                    </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="stat">Total Comments <span>3500</span></div>
+                        <div class="stat st-comments">Total Comments <span>3500</span>
+                        <a href="#">See All</a>
+                    </div>
                     </div>
                 </div>
             </div>

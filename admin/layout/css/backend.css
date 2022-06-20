@@ -35,15 +35,32 @@ body{
 /* Start Dashboard Page */
 
 .home-stats .stat{
-    background-color: #EEE;
-    border: 1px solid #CCC;
     padding: 20px;
     font-size: 15px;
+    color: #FFF;
+    border-radius: 10px;
 }
 
 .home-stats .stat span{
     display: block;
     font-size: 50px;
+}
+
+.home-stats .stat a{
+    color: white;
+}
+
+.home-stats .st-members{
+    background-color: #293462;
+}
+.home-stats .st-pending{
+    background-color: #F24C4C;
+}
+.home-stats .st-items{
+    background-color: #EC9B3B;
+}
+.home-stats .st-comments{
+    background-color: #FFD24C;
 }
 
 .latest {
