@@ -15,7 +15,9 @@
                             </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="stat st-pending">Pending Members <span>20</span>
+                        <div class="stat st-pending">Pending Members <span>
+                        <?php echo checkItem('regstatus', 'users', 0); ?>
+                        </span>
                         <a href="members.php?do=Manage&page=Pending">See All</a>
                     </div>
                     </div>

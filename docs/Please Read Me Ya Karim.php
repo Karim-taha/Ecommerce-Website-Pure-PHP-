@@ -366,4 +366,8 @@ v42 : Members Page : Manage Pending
 
 v43 : Members Page : Activate Pending Members
 
+--------------------------------------------
+
+v44 : Dashboard Page : Pending Members Count
+
 */
