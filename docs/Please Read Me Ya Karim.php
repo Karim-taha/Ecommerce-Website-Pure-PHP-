@@ -356,6 +356,10 @@ echo countItems ("user_id", "users");
 
 --------------------------------------------
 
-v41 : Dashboard Page : Design and Links 
+v41 : Dashboard Page : Design and Links
+
+--------------------------------------------
+
+v42 : Members Page : Manage Pending 
 
 */

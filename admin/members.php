@@ -21,8 +21,15 @@
 
         if($do == 'Manage'){  // Manage Page  
 
+            /* Start Activation members link */
+            $query = '';
+            if(isset($_GET['page']) && $_GET['page'] == 'Pending'){
+                $query = 'AND regstatus = 0';
+            }
+            /* End Activation members link */
+
             // Select * users Except Admins : 
-        $stmt = $conn->prepare("SELECT * FROM users WHERE group_id != 1 ;");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE group_id != 1 $query;");
         $stmt->execute();
         $rows = $stmt->fetchAll();
         
@@ -52,8 +59,14 @@
                                     echo "<td>" . $row['date'] . "</td>";
                                     echo "<td>
                                     <a href='members.php?do=Edit&user_id=". $row['user_id']. "'class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>" . " " .
-                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete</a>" .
-                                    "</td>";
+                                    "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-danger confirm'><i class='fa fa-close'></i> Delete</a>";
+                                    
+                                    if($row['regstatus'] == 0){
+                                        echo "<a href='members.php?do=Delete&user_id=". $row['user_id']. "'class='btn btn-info activate'><i class='fa fa-close'></i> Activate</a>";
+                                    }
+
+
+                                    echo "</td>";
                                 echo "</tr>";
                             }
 

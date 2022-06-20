@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="stat st-pending">Pending Members <span>20</span>
-                        <a href="#">See All</a>
+                        <a href="members.php?do=Manage&page=Pending">See All</a>
                     </div>
                     </div>
                     <div class="col-md-3">
