@@ -393,4 +393,8 @@ function getLatest($select, $table, $order, $limit = 5){
 
 }
 
+----------------------------------------------
+
+v46 : Dashboard Page : Design latest registered users.
+
 */

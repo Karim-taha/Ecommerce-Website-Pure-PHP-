@@ -78,6 +78,32 @@ body{
     padding: 5px;
 }
 
+.latest-users{
+    margin-bottom: 0;
+}
+
+/* ul.list-unstyled.latest-users {
+    color: green;
+} */
+
+.latest-users li{
+    padding: 1px 0;
+    overflow: hidden;
+}
+
+.latest-users li:nth-child(even){
+    background-color: #EEE;
+}
+
+.latest-users .btn-success{
+    padding: 2px 6px;
+}
+
+.latest-users .btn-info{
+    padding: 2px 6px;
+    margin-right: 5px;
+}
+
 /* End Dashboard Page */
 
 /* Start Members Page */

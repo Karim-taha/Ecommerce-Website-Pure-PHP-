@@ -4,6 +4,9 @@
         $pageTitle ='Dashboard';
         include 'init.php';
         /* Start Dashboard Page Body */
+
+        $latestUsers = 5;  // To count latest registered users.
+        $theLatest = getLatest('*', 'users', 'user_id', $latestUsers);  // Latest users array.
         ?>
             <div class="container home-stats text-center">
                 <h1 class="mt-3 mb-4">Dashboard</h1>
@@ -39,15 +42,25 @@
                     <div class="col-sm-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <?php $latestUsers = 5; ?>
                                 <i class="fa fa-users"></i> Latest <?php echo $latestUsers; ?> Registered Users
                             </div>
                             <div class="panel-body">
-                            <?php 
-                                $theLatest = getLatest('*', 'users', 'user_id', $latestUsers);
+                                <ul class="list-unstyled latest-users">
+                            <?php
                                 foreach ($theLatest as $user){
-                                    echo $user['fullname'] . '<br>';
+                                    echo '<li>';
+                                        echo $user['fullname'];
+                                        echo  '<a href="members.php?do=Edit&user_id=' . $user['user_id'] . '">';
+                                            echo '<span class="btn btn-success float-end">';
+                                                echo '<i class="fa fa-edit"></i>Edit';
+                                                if($user['regstatus'] == 0){
+                                                    echo "<a href='members.php?do=Activate&user_id=". $user['user_id']. "'class='btn btn-info activate float-end'><i class='fa fa-close'></i> Activate</a>";
+                                                }
+                                            echo '</span>';
+                                        echo '</a>';
+                                    echo '</li>';
                                 } ?>
+                                </ul>
                             </div>
                         </div>
                     </div>
