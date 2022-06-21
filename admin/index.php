@@ -48,7 +48,7 @@
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="login">
     <h4 class="text-center">Admin Login</h4>
-    <input class="form-control" type="text" name="user" placeholder="username" autocomplete="off">
+    <input class="form-control" type="text" name="user" placeholder="username" autofocus autocomplete="off">
     <input  class="form-control" type="password" name="pass" placeholder="Password" autocomplete="new-password">
     <input  class="btn btn-primary btn-block" type="submit" value="login">
 </form>

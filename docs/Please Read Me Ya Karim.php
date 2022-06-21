@@ -370,4 +370,27 @@ v43 : Members Page : Activate Pending Members
 
 v44 : Dashboard Page : Pending Members Count
 
+--------------------------------------------
+
+v45 : Create getLatest() function :
+
+/*
+** Get latest record function
+** This function is to get latest items from database [users, items, comments, ...]
+** $select : The column I want to selct from table.
+** $table  : The table I want to get data from.
+** $order  : The DESC ordering.
+** $limit  : The limit of records I want to get (default = 5).
+
+
+function getLatest($select, $table, $order, $limit = 5){
+    global $conn;
+
+    $getStmt = $conn->prepare("SELECT $select FROM $table ORDER BY $order DESC LIMIT $limit;");
+    $getStmt->execute();
+    $rows = $getStmt->fetchAll();
+    return $rows;
+
+}
+
 */

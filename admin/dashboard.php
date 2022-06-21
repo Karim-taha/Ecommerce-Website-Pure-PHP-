@@ -39,10 +39,15 @@
                     <div class="col-sm-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-users"></i> Latest Registered Users
+                                <?php $latestUsers = 5; ?>
+                                <i class="fa fa-users"></i> Latest <?php echo $latestUsers; ?> Registered Users
                             </div>
                             <div class="panel-body">
-                                Test
+                            <?php 
+                                $theLatest = getLatest('*', 'users', 'user_id', $latestUsers);
+                                foreach ($theLatest as $user){
+                                    echo $user['fullname'] . '<br>';
+                                } ?>
                             </div>
                         </div>
                     </div>
