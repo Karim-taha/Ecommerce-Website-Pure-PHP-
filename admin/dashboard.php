@@ -1,4 +1,6 @@
 <?php 
+
+    ob_start();   // Output Buffering Start
     session_start();
     if(isset($_SESSION['username'])){
         $pageTitle ='Dashboard';
@@ -85,3 +87,5 @@
         header("Location: index.php");
         exit();
     }
+
+    ob_end_flush();

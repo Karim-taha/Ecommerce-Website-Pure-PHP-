@@ -397,4 +397,20 @@ function getLatest($select, $table, $order, $limit = 5){
 
 v46 : Dashboard Page : Design latest registered users.
 
+----------------------------------------------
+
+v47 : Fix headers sent errors (if exists) :
+
+// Error : headers already sent
+
+ob_start();   // Output Buffering Start
+* This built-in function store all the outputs in ram but not headers.
+* Output buffering is active output is sent from the script to the browser but stored in the internal buffer (but not the header).  (buffuer : التخزين المؤقت)
+* Written in the beginning of the page.
+
+ob_end_flush();  
+* Let the output that stored to appear in the browser.
+* Written in the end of the page.
+
+
 */
