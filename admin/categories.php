@@ -1,0 +1,125 @@
+<?php 
+
+/*
+=====================
+== Category Page
+=====================
+*/
+
+ob_start();
+
+session_start();
+$pageTitle = 'Catgories';
+
+if(isset($_SESSION['username'])) {
+
+    include 'init.php';
+
+    $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
+    
+        if($do == 'Manage'){    // Manage Page
+            echo "Welcome to Category Manage Page";
+        }elseif ($do == 'Add'){ // Add Page  ?>
+
+            <h1 class="text-center mt-4">Add Category</h1>
+            <div class="container">
+                <div class="row justify-content-center">
+                <form class="form-horizontal" action="?do=Insert" method="POST">
+                    <!-- Start category name -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Category Name <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="text" name="cat_name" class="form-control" autocomplete="off" required="required" placeholder="Category Name.">
+                        </div>
+                    </div>
+                    <!-- End category name -->
+                    <!-- Start y describtion -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Category Describtion </label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="text" name="cat_desc" class="form-control" placeholder="Describe the category">
+                        </div>
+                    </div>
+                    <!-- End category describtion -->
+                    <!-- Start ordering field -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Ordering </label>
+                        <div class="col-sm-10 col-md-4">
+                            <input type="text" name="cat_ordering" class="form-control" placeholder="Number to Arrange the categories.">
+                        </div>
+                    </div>
+                    <!-- End ordering field -->
+                    <!-- Start Visibility -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Visibility </label>
+                        <div class="col-sm-10 col-md-4">
+                            <div>
+                                <input id="vis-yes" type="radio" name="cat_visibility" value="0" checked>
+                                <label for="vis-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input id="vis-no" type="radio" name="cat_visibility" value="1">
+                                <label for="vis-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Visibility -->
+                    <!-- Start Commenting -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Allow Commenting </label>
+                        <div class="col-sm-10 col-md-4">
+                            <div>
+                                <input id="com-yes" type="radio" name="cat_allow_comment" value="0" checked>
+                                <label for="com-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input id="com-no" type="radio" name="cat_allow_comment" value="1">
+                                <label for="com-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Commenting -->
+                    <!-- Start Ads -->
+                    <div class="form-group mb-4">
+                        <label for="" class="col-sm-2 mb-1 control-label">Allow Ads </label>
+                        <div class="col-sm-10 col-md-4">
+                            <div>
+                                <input id="ads-yes" type="radio" name="cat_allow_ads" value="0" checked>
+                                <label for="ads-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input id="ads-no" type="radio" name="cat_allow_ads" value="1">
+                                <label for="ads-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Ads -->
+                    <!-- Start Submit Button -->
+                    <div class="form-group mt-3">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Add Category" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <!-- End Submit Button -->
+                </form>
+                </div>
+            </div>
+<?php 
+
+        }elseif($do == 'Insert'){   // Insert Page
+
+        }elseif($do == 'Edit'){     // Edit Page
+
+        }elseif($do == 'Update'){   // Update Page
+
+        }elseif($do == 'Delete'){   // Delete Page
+
+        }
+
+        include $template . "footer.php";  
+}else {
+    header("Location:index.php");
+    exit();
+}
+
+ob_end_flush();  // Release the output

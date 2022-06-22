@@ -426,4 +426,8 @@ Table name : categoreis ( 7 columns )
 (6) cat_allow_comment : TINYINT (11)      [ default : 0 => no comment | 1 => yes comment ]
 (7) cat_allow_ads     : TINYINT (11)      [ default : 0 => no ads | 1 => yes ads ]
 
+-----------------------------------------------
+
+v49 : Categories : Make Add Category Page
+
 */
