@@ -412,5 +412,18 @@ ob_end_flush();
 * Let the output that stored to appear in the browser.
 * Written in the end of the page.
 
+-----------------------------------------------
+
+v48 : Categories : Create Database Table.
+
+Table name : categoreis ( 7 columns )
+
+(1) cat_id : TINYINT (11) PRIMARY AUTO INCREMENT 
+(2) cat_name : VARCHAR (255)   Index -> UNIQU
+(3) cat_desc : TEXT (255)
+(4) cat_ordering : INT (11)
+(5) cat_visibility : TINYINT (11)         [ default : 0 => hide | 1 => show ]
+(6) cat_allow_comment : TINYINT (11)      [ default : 0 => no comment | 1 => yes comment ]
+(7) cat_allow_ads     : TINYINT (11)      [ default : 0 => no ads | 1 => yes ads ]
 
 */
