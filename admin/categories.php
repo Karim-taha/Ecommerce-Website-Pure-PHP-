@@ -108,6 +108,55 @@ if(isset($_SESSION['username'])) {
 
         }elseif($do == 'Insert'){   // Insert Page
 
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                echo "<h1 class='text-center mt-4'>Insert Category</h1>";
+                echo "<div class='container'>";
+                // Get data from the form :
+                    $catName = $_POST['cat_name'];
+                    $catDesc = $_POST['cat_desc'];
+                    $catOrdering = $_POST['cat_ordering'];
+                    $catVisibility = $_POST['cat_visibility'];
+                    $catAllowComment = $_POST['cat_allow_comment'];
+                    $catAllowAds = $_POST['cat_allow_ads'];
+
+
+                    // Validate the form : 
+                    $formErrors = [];
+                    if(empty($catName)){
+                        $formErrors[] = "Category Name can't be empty";
+                    } 
+                    // Loop on Error Array and echo it if there is an error or more.
+                    foreach($formErrors as $error){
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
+                    }
+
+                    
+                    // If no form errors :
+                    if(empty($formErrors)){
+
+                        // Check if category alreay exists in database :
+                        $check= checkItem("cat_name", "categories", $catName);
+    
+                        if($check == 1 ){
+                            $theMsg = "<div class='alert alert-danger'>Category already exists.</div>";
+                            redirectHome($theMsg, 'referer');
+                        } else {  // Create the new category :
+
+                                $stmt = $conn->prepare("INSERT INTO categories (cat_name, cat_desc, cat_ordering, cat_visibility, cat_allow_comment, cat_allow_ads) VALUES (?, ?, ?, ?, ?, ?);"); 
+                                $stmt->execute(array($catName, $catDesc , $catOrdering, $catVisibility, $catAllowComment, $catAllowAds));
+                                // Show success message :
+                                $theMsg = "<div class='alert alert-success text-cnter'>Category Added Successfully.</div>";
+                                redirectHome($theMsg, 'referer');
+                            }
+                    }
+
+            } else{
+                echo "<div class='container'>";
+                $theMsg = "<div class='alert alert-danger'>You can not access this page directly</div>";
+                redirectHome($theMsg, 'referer');
+                echo "</div>";
+            }
+            echo "</div>";
         }elseif($do == 'Edit'){     // Edit Page
 
         }elseif($do == 'Update'){   // Update Page

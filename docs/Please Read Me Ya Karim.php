@@ -430,4 +430,8 @@ Table name : categoreis ( 7 columns )
 
 v49 : Categories : Make Add Category Page
 
+-----------------------------------------------
+
+v50 : Categories : Make Insert Page
+
 */
