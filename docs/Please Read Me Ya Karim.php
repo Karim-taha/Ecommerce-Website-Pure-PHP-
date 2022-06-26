@@ -442,4 +442,8 @@ v51 : Categories : Make Manage Page
 
 v52 : Categories : Design Manage Page
 
+----------------------------------------------
+
+v53 : Categories : Design Manage Page (New Idea for Buttons)
+
 */
