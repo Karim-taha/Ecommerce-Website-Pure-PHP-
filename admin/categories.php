@@ -18,7 +18,26 @@ if(isset($_SESSION['username'])) {
     $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
     
         if($do == 'Manage'){    // Manage Page
-            echo "Welcome to Category Manage Page";
+
+            $stmt2 = $conn->prepare("SELECT * FROM categories");
+            $stmt2->execute();
+            $cats = $stmt2->fetchall(); ?>
+
+            <h1 class="text-center mt-5 mb-5">Manage Categories</h1>
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Manage Categories</div>
+                    <div class="panel-body">
+                        <?php 
+                            foreach($cats as $cat){
+                                echo $cat['cat_name'] . "<br>";
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+<?php 
         }elseif ($do == 'Add'){ // Add Page  ?>
 
             <h1 class="text-center mt-4">Add Category</h1>

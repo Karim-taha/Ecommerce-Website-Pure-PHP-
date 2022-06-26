@@ -434,4 +434,8 @@ v49 : Categories : Make Add Category Page
 
 v50 : Categories : Make Insert Page
 
+-----------------------------------------------
+
+v51 : Categories : Make Manage Page
+
 */
