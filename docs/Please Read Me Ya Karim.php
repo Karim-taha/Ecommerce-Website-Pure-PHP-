@@ -438,4 +438,8 @@ v50 : Categories : Make Insert Page
 
 v51 : Categories : Make Manage Page
 
+-----------------------------------------------
+
+v52 : Categories : Design Manage Page
+
 */

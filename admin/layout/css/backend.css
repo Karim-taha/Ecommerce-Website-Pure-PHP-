@@ -136,3 +136,54 @@ body{
 }
 
 /* End Members Page */
+
+/* Start Category Page */
+
+.categories .cat h3{
+    margin: 0 0 10px;
+}
+
+.categories .cat:last-of-type ~ hr {
+    display: none;
+}
+
+.visible {
+    background-color: #95CD41;
+    color: white;
+    padding: 2px;
+    border-radius: 3px;
+}
+.hidden {
+    background-color: #990000;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.comentingyes{
+    background-color: #95CD41;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+.comentingno{
+    background-color: #990000;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.advertisingyes{
+    background-color: #95CD41;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+.advertisingno{
+    background-color: #990000;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+/* End Category Page */

@@ -24,13 +24,41 @@ if(isset($_SESSION['username'])) {
             $cats = $stmt2->fetchall(); ?>
 
             <h1 class="text-center mt-5 mb-5">Manage Categories</h1>
-            <div class="container">
+            <div class="container categories">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Manage Categories</div>
+                    <h4 class="panel-heading text-center">Manage Categories</h4>
                     <div class="panel-body">
                         <?php 
                             foreach($cats as $cat){
-                                echo $cat['cat_name'] . "<br>";
+                                echo "<div class='cat'>"; 
+                                echo "<h3>" . $cat['cat_name'] . "</h3>";
+                                echo "<p>"; 
+                                if($cat['cat_desc'] == '') {
+                                    echo "Description is empty";
+                                }else {
+                                    echo $cat['cat_desc'];
+                                }
+                                     echo "</p>";
+
+                                if($cat['cat_visibility'] == 1){
+                                    echo "<span>Visibility: <span class='visible'>Visible</span>" . "<br>";
+                                }else{
+                                    echo "<span>Visibility: <span class='hidden'>Hidden</span>" . "<br>";
+                                }
+
+                                if($cat['cat_allow_comment'] == 1){
+                                    echo "<span>Allow Comment: <span class='comentingyes'>Yes</span>" . "<br>";
+                                }else{
+                                    echo "<span>Allow Comment: <span class='comentingno'>No</span>" . "<br>";
+                                }
+
+                                if($cat['cat_allow_ads'] == 1){
+                                    echo "<span>Allow Ads: <span class='advertisingyes'>Yes</span>" . "<br>";
+                                }else{
+                                    echo "<span>Allow Ads: <span class='advertisingno'>No</span>" . "<br>";
+                                }
+                                echo "</div>";
+                                echo "<hr>";
                             }
                         ?>
                     </div>
