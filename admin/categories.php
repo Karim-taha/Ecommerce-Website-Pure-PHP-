@@ -19,14 +19,29 @@ if(isset($_SESSION['username'])) {
     
         if($do == 'Manage'){    // Manage Page
 
-            $stmt2 = $conn->prepare("SELECT * FROM categories");
+            $sort = 'ASC';
+            $sort_array = ['ASC', 'DESC'];
+
+            if(isset($_GET['sort']) && in_array($_GET['sort'], $sort_array)){
+
+                $sort = $_GET['sort'];
+            }
+
+            $stmt2 = $conn->prepare("SELECT * FROM categories ORDER BY cat_ordering $sort");
             $stmt2->execute();
             $cats = $stmt2->fetchall(); ?>
 
             <h1 class="text-center mt-5 mb-5">Manage Categories</h1>
             <div class="container categories">
                 <div class="panel panel-default">
-                    <h4 class="panel-heading text-center">Manage Categories</h4>
+                    <div class="panel-heading text-center">Manage Categories
+                    <div class="ordering float-end">
+                        Choose Ordering : 
+                        <a href="?sort=ASC" class="<?php if($sort == 'ASC') {echo 'active'; } ?>"> ASC </a> |
+                        <a href="?sort=DESC" class="<?php if($sort == 'DESC') {echo 'active'; } ?>"> DESC </a>
+                    </div>
+                    </div>
+                    
                     <div class="panel-body">
                         <?php 
                             foreach($cats as $cat){
