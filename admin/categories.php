@@ -331,7 +331,54 @@ if(isset($_SESSION['username'])) {
 
            }
         }elseif($do == 'Update'){   // Update Page
+            echo "<h1 class='text-center mt-4'>Edit Category</h1>";
+            echo "<div class='container'>";
 
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                // Get data from the form :
+                    $cat_id                 = $_POST['cat_id'];
+                    $cat_name               = $_POST['cat_name'];
+                    $cat_desc               = $_POST['cat_desc'];
+                    $cat_ordering           = $_POST['cat_ordering'];
+                    $cat_visibility         = $_POST['cat_visibility'];
+                    $cat_allow_comment      = $_POST['cat_allow_comment'];
+                    $cat_allow_ads          = $_POST['cat_allow_ads'];
+
+                    // Validate the form : 
+                    $formErrors = [];
+                    if(empty($cat_name)){
+                        $formErrors[] = "Category name can't be empty";
+                    }
+                    // Loop on Error Array and echo it if there is an error or more.
+                    foreach($formErrors as $error){
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
+                    }
+
+                    // If no Errors Send data to database :
+                    if(empty($formErrors)){
+
+                        $stmt = $conn->prepare("UPDATE 
+                                                    categories 
+                                                SET cat_name = ? , 
+                                                    cat_desc = ? , 
+                                                    cat_ordering = ? , 
+                                                    cat_visibility = ? , 
+                                                    cat_allow_comment = ? , 
+                                                    cat_allow_ads = ? 
+                                                WHERE 
+                                                    cat_id = ? ");
+                        $stmt->execute(array($cat_name, $cat_desc , $cat_ordering, $cat_visibility, $cat_allow_comment, $cat_allow_ads, $cat_id));
+    
+                        // Show success message :
+                        $theMsg = "<div class='alert alert-success text-cnter'>Record Updated</div>";
+                        redirectHome($theMsg, 'referer');
+                    }
+
+            }else{
+                $theMsg = "<div class='alert alert-danger text-cnter'>You can not access this page directly</div>";
+                redirectHome($theMsg, 'referer');
+            }
+            echo "</div>";
         }elseif($do == 'Delete'){   // Delete Page
 
         }

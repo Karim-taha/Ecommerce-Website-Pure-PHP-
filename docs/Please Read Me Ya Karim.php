@@ -454,5 +454,9 @@ v54 : Categories : Dynamic Ordering
 
 v55 : Categories : Make Edit Page 
 
+----------------------------------------------
+
+v56 : Categories : Make Update Page
+
 
 */
