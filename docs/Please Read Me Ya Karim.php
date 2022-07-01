@@ -458,5 +458,9 @@ v55 : Categories : Make Edit Page
 
 v56 : Categories : Make Update Page
 
+----------------------------------------------
+
+v57 : Categories : Make Delete Page
+
 
 */
