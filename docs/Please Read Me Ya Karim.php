@@ -462,5 +462,9 @@ v56 : Categories : Make Update Page
 
 v57 : Categories : Make Delete Page
 
+----------------------------------------------
+
+v58 : Categories : Add View Options
+
 
 */

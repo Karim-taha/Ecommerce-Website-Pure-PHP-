@@ -39,4 +39,26 @@ $(function () {
         return confirm('Are You Sure?');
     });
 
+    // Category View Option :
+    $(".cat .h3").click(function(){
+        $(this).next('.full-view').fadeToggle(300);
+    });
+
+    // $("optionView span").click(function(){
+    //     $(this).addClass("activeView").siblings('span').removeClass("active");
+    // });
+
+    // if($(this).data('view') === 'full'){
+    //     $("cat .full-view").fadeIn(200);
+    // }else{
+    //     $("cat .full-view").fadeOut(200);
+    // }
+
+
+    // if($(".optionView span").data("view") === 'full'){
+    //     $("cat .full-view").fadeIn(200);
+    // }else{
+    //     $("cat .full-view").fadeOut(200);
+    // }
+
 });

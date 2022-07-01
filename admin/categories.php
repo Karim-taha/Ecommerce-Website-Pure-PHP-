@@ -40,6 +40,11 @@ if(isset($_SESSION['username'])) {
                         Choose Ordering : 
                         <a href="?sort=ASC" class="<?php if($sort == 'ASC') {echo 'active'; } ?>"> ASC </a> |
                         <a href="?sort=DESC" class="<?php if($sort == 'DESC') {echo 'active'; } ?>"> DESC </a>
+                        View 
+                        <span class="optionView">
+                            <span class="viewCatOptionFull" data-view="full">Full</span> |
+                            <span class="viewCatOptionClassic" data-view="classic">Classic</span>
+                        </span>
                     </div>
                     </div>
                     
@@ -52,31 +57,33 @@ if(isset($_SESSION['username'])) {
                                     echo "<a href='categories.php?do=Delete&cat_id=" . $cat['cat_id'] . "' class='confirm btn btn-xs btn-danger'><i class='fa fa-close'></i> Delete</a>";
                                 echo "</div>";
                                 echo "<h3>" . $cat['cat_name'] . "</h3>";
-                                echo "<p>"; 
-                                if($cat['cat_desc'] == '') {
-                                    echo "Description is empty";
-                                }else {
-                                    echo $cat['cat_desc'];
-                                }
-                                     echo "</p>";
+                                    echo "<div class='full-view'>";
+                                        echo "<p>";
+                                        if($cat['cat_desc'] == '') {
+                                            echo "Description is empty";
+                                        }else {
+                                            echo "Describtion : " .  $cat['cat_desc'];
+                                        }
+                                        echo "</p>";
 
-                                if($cat['cat_visibility'] == 1){
-                                    echo "<span>Visibility: <span class='visible'>Visible</span>" . "<br>";
-                                }else{
-                                    echo "<span>Visibility: <span class='hidden'>Hidden</span>" . "<br>";
-                                }
+                                        if($cat['cat_visibility'] == 1){
+                                            echo "<span>Visibility: <span class='visible'>Visible</span>" . "<br>";
+                                        }else{
+                                            echo "<span>Visibility: <span class='hidden'>Hidden</span>" . "<br>";
+                                        }
 
-                                if($cat['cat_allow_comment'] == 1){
-                                    echo "<span>Allow Comment: <span class='comentingyes'>Yes</span>" . "<br>";
-                                }else{
-                                    echo "<span>Allow Comment: <span class='comentingno'>No</span>" . "<br>";
-                                }
+                                        if($cat['cat_allow_comment'] == 1){
+                                            echo "<span>Allow Comment: <span class='comentingyes'>Yes</span>" . "<br>";
+                                        }else{
+                                            echo "<span>Allow Comment: <span class='comentingno'>No</span>" . "<br>";
+                                        }
 
-                                if($cat['cat_allow_ads'] == 1){
-                                    echo "<span>Allow Ads: <span class='advertisingyes'>Yes</span>" . "<br>";
-                                }else{
-                                    echo "<span>Allow Ads: <span class='advertisingno'>No</span>" . "<br>";
-                                }
+                                        if($cat['cat_allow_ads'] == 1){
+                                            echo "<span>Allow Ads: <span class='advertisingyes'>Yes</span>" . "<br>";
+                                        }else{
+                                            echo "<span>Allow Ads: <span class='advertisingno'>No</span>" . "<br>";
+                                        }
+                                    echo "</div>";    
                                 echo "</div>";
                                 echo "<hr>";
                             }

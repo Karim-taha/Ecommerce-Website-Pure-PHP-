@@ -161,6 +161,14 @@ body{
     color: #FFA500;
 }
 
+.viewCatOptionFull{
+    cursor: pointer;
+}
+
+.viewCatOptionClassic{
+    cursor: pointer;
+}
+
 .categories .cat{
     padding: 15px;
     position: relative;
@@ -185,6 +193,10 @@ body{
 }
 .categories .cat .hidden-buttons a {
     margin-right: 5px;
+}
+
+.categories .cat h3{
+    cursor: pointer;
 }
 
 .categories .cat:last-of-type ~ hr {
