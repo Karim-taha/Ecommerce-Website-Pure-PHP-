@@ -37,14 +37,14 @@ if(isset($_SESSION['username'])) {
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">Manage Categories
                     <div class="ordering float-end">
-                        Choose Ordering : 
+                        <i class="fa fa-sort"></i> Choose Ordering : 
                         <a href="?sort=ASC" class="<?php if($sort == 'ASC') {echo 'active'; } ?>"> ASC </a> |
                         <a href="?sort=DESC" class="<?php if($sort == 'DESC') {echo 'active'; } ?>"> DESC </a>
-                        View 
+                        <!-- View 
                         <span class="optionView">
                             <span class="viewCatOptionFull" data-view="full">Full</span> |
                             <span class="viewCatOptionClassic" data-view="classic">Classic</span>
-                        </span>
+                        </span> -->
                     </div>
                     </div>
                     
@@ -67,21 +67,21 @@ if(isset($_SESSION['username'])) {
                                         echo "</p>";
 
                                         if($cat['cat_visibility'] == 1){
-                                            echo "<span>Visibility: <span class='visible'>Visible</span>" . "<br>";
+                                            echo "<span>Visibility: <span class='visible'><i class='fa-regular fa-eye'></i> Visible</span>" . "<br>";
                                         }else{
-                                            echo "<span>Visibility: <span class='hidden'>Hidden</span>" . "<br>";
+                                            echo "<span>Visibility: <span class='hidden'><i class='fa-regular fa-eye-slash'></i> Hidden</span>" . "<br>";
                                         }
 
                                         if($cat['cat_allow_comment'] == 1){
-                                            echo "<span>Allow Comment: <span class='comentingyes'>Yes</span>" . "<br>";
+                                            echo "<span>Allow Comment: <span class='comentingyes'><i class='fa fa-check'></i> Yes</span>" . "<br>";
                                         }else{
-                                            echo "<span>Allow Comment: <span class='comentingno'>No</span>" . "<br>";
+                                            echo "<span>Allow Comment: <span class='comentingno'><i class='fa fa-close'></i> No</span>" . "<br>";
                                         }
 
                                         if($cat['cat_allow_ads'] == 1){
-                                            echo "<span>Allow Ads: <span class='advertisingyes'>Yes</span>" . "<br>";
+                                            echo "<span>Allow Ads: <span class='advertisingyes'><i class='fa fa-check'></i> Yes</span>" . "<br>";
                                         }else{
-                                            echo "<span>Allow Ads: <span class='advertisingno'>No</span>" . "<br>";
+                                            echo "<span>Allow Ads: <span class='advertisingno'><i class='fa fa-close'></i> No</span>" . "<br>";
                                         }
                                     echo "</div>";    
                                 echo "</div>";

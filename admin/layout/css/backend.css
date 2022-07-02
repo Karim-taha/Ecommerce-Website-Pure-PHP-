@@ -161,13 +161,13 @@ body{
     color: #FFA500;
 }
 
-.viewCatOptionFull{
+/* .viewCatOptionFull{
     cursor: pointer;
 }
 
 .viewCatOptionClassic{
     cursor: pointer;
-}
+} */
 
 .categories .cat{
     padding: 15px;

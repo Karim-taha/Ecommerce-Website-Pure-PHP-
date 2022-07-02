@@ -40,9 +40,9 @@ $(function () {
     });
 
     // Category View Option :
-    $(".cat .h3").click(function(){
-        $(this).next('.full-view').fadeToggle(300);
-    });
+    // $(".cat .h3").click(function(){
+    //     $(this).next('.full-view').fadeToggle(300);
+    // });
 
     // $("optionView span").click(function(){
     //     $(this).addClass("activeView").siblings('span').removeClass("active");

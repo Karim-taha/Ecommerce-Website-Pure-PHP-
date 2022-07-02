@@ -466,5 +466,8 @@ v57 : Categories : Make Delete Page
 
 v58 : Categories : Add View Options
 
+----------------------------------------------
+
+v59 : Categories : Retouch
 
 */
