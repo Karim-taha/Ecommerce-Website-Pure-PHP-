@@ -470,4 +470,24 @@ v58 : Categories : Add View Options
 
 v59 : Categories : Retouch
 
+----------------------------------------------
+
+v60 : Items : Create Database Table
+
+Table Name : items   ( Consists of 11 columns ) :
+
+(1) item_id : int(11) PRIMARY KEY AUTO INCREMENT
+(2) item_name : VARCHAR(255)
+(3) item_desc : TEXT(255)
+(4) item_price : VARCHAR(255)
+(5) item_add_date : DATE
+(6) item_country_made : VARCHAR(255)
+(7) item_image : VARCHAR(255)
+(8) item_status : VARCHAR(255)      // For Example: New Item or Used Item and so on. 
+(9) item_rating : SMALLINT(11) 
+(10) cat_id : INT(11)               // Foreign Key for Catgories Table
+(11) user_id : INT(11)              // Foreign Key for Users Table
+
+
+
 */
