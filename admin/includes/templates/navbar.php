@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="categories.php"><?php echo lang('CATEGORIES'); ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><?php echo lang('Items'); ?></a>
+          <a class="nav-link active" aria-current="page" href="items.php"><?php echo lang('Items'); ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="members.php"><?php echo lang('Members'); ?></a>

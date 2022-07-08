@@ -488,6 +488,9 @@ Table Name : items   ( Consists of 11 columns ) :
 (10) cat_id : INT(11)               // Foreign Key for Catgories Table
 (11) user_id : INT(11)              // Foreign Key for Users Table
 
+-----------------------------------------------
+
+v61 : Items : Make Add Page
 
 
 */
