@@ -185,7 +185,7 @@
                                 $stmt->execute(array($username, $hashedPass , $email, $fullname));
                                 // Show success message :
                                 $theMsg = "<div class='alert alert-success text-cnter'>Member Added Successfully.</div>";
-                                redirectHome($theMsg, 'referer');
+                                redirectHome($theMsg);
                             }
                     }
 

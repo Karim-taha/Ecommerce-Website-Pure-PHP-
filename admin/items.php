@@ -83,6 +83,7 @@ if(isset($_SESSION['username'])) {
                         <label for="" class="col-sm-2 mb-1 control-label">Status <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
                             <select name="item_status" id="">
+                                <option value="0">...</option>
                                 <option value="1">New</option>
                                 <option value="2">Used</option>
                                 <option value="3">Very Old</option>
@@ -104,7 +105,72 @@ if(isset($_SESSION['username'])) {
             </div>
 <?php 
         }elseif($do == 'Insert'){   // Insert Page
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
+                echo "<h1 class='text-center mt-4'>Insert Item</h1>";
+                echo "<div class='container'>";
+                // Get data from the form :
+                    $item_name = $_POST['item_name'];
+                    $item_desc = $_POST['item_desc'];
+                    $item_price = $_POST['item_price'];
+                    $item_country_made = $_POST['item_country_made'];
+                    $item_status = $_POST['item_status'];
 
+                    // Validate the form : 
+                    $formErrors = [];
+                    if(empty($item_name)){
+                        $formErrors[] = "Item name can't be empty";
+                    } 
+                    if(empty($item_desc)){
+                        $formErrors[] = "Item Description can't be empty";
+                    } 
+                    if(empty($item_price)){
+                        $formErrors[] = "Price can't be empty";
+                    } 
+                    if (empty($item_country_made)) {
+                        $formErrors[] = "Country Made can't be empty";
+                    } 
+                    if ($item_status == 0) {
+                        $formErrors[] = "You must choose item status";
+                    } 
+                    // Loop on Error Array and echo it if there is an error or more.
+                    foreach($formErrors as $error){
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
+                    }
+
+                    
+                    // If no form errors :
+                    if(empty($formErrors)){
+
+                        $stmt = $conn->prepare("INSERT INTO 
+                                                    items (
+                                                        item_name, 
+                                                        item_desc, 
+                                                        item_price, 
+                                                        item_country_made, 
+                                                        item_status,
+                                                        item_add_date 
+                                                        ) 
+                                                    VALUES (?, ?, ?, ?, ?, now());"); 
+                        $stmt->execute(array(
+                            $item_name, 
+                            $item_desc, 
+                            $item_price, 
+                            $item_country_made,
+                            $item_status
+                        ));
+                        // Show success message :
+                        $theMsg = "<div class='alert alert-success text-cnter'>Item Added Successfully.</div>";
+                        redirectHome($theMsg, 'referer');
+                            
+                    }
+
+            } else{
+                echo "<div class='container'>";
+                $theMsg = "<div class='alert alert-danger'>You can not access this page directly</div>";
+                redirectHome($theMsg);
+                echo "</div>";
+            }
+            echo "</div>";
         }elseif($do == 'Edit'){     // Edit Page
 
         }elseif($do == 'Update'){   // Update Page

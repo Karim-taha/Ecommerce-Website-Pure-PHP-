@@ -496,5 +496,9 @@ v61 : Items : Make Add Page
 
 v62 : Plugins : Add SelectBoxIt
 
+----------------------------------------------
+
+v63 : Items : make Insert Page
+
 
 */
