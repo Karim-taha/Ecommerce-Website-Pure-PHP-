@@ -82,7 +82,7 @@ if(isset($_SESSION['username'])) {
                     <div class="form-group mb-4">
                         <label for="" class="col-sm-2 mb-1 control-label">Status <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
-                            <select class="form-control" name="item_status" id="">
+                            <select name="item_status" id="">
                                 <option value="1">New</option>
                                 <option value="2">Used</option>
                                 <option value="3">Very Old</option>

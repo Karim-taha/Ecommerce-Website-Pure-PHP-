@@ -492,5 +492,9 @@ Table Name : items   ( Consists of 11 columns ) :
 
 v61 : Items : Make Add Page
 
+-----------------------------------------------
+
+v62 : Plugins : Add SelectBoxIt
+
 
 */
