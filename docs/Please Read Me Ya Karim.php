@@ -500,5 +500,9 @@ v62 : Plugins : Add SelectBoxIt
 
 v63 : Items : make Insert Page
 
+----------------------------------------------
+
+v64 : Items : Add Members & Categories
+
 
 */

@@ -27,7 +27,7 @@ if(isset($_SESSION['username'])) {
                     <div class="col-lg-9">
                 <form class="form-horizontal" action="?do=Insert" method="POST">
                     <!-- Start item name -->
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-2">
                         <label for="" class="col-sm-2 mb-1 control-label">Item Name <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
                             <input 
@@ -40,7 +40,7 @@ if(isset($_SESSION['username'])) {
                     </div>
                     <!-- End item name -->
                     <!-- Start item description -->
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-2">
                         <label for="" class="col-sm-2 mb-1 control-label">Item Description <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
                             <input 
@@ -53,7 +53,7 @@ if(isset($_SESSION['username'])) {
                     </div>
                     <!-- End item description -->
                     <!-- Start item price -->
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-2">
                         <label for="" class="col-sm-2 mb-1 control-label">Item Price <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
                             <input 
@@ -66,7 +66,7 @@ if(isset($_SESSION['username'])) {
                     </div>
                     <!-- End item price -->
                     <!-- Start item country made -->
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-2">
                         <label for="" class="col-sm-2 mb-1 control-label">Country Made <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
                             <input 
@@ -79,7 +79,7 @@ if(isset($_SESSION['username'])) {
                     </div>
                     <!-- End item country made -->
                     <!-- Start item status -->
-                    <div class="form-group mb-4">
+                    <div class="form-group mb-2">
                         <label for="" class="col-sm-2 mb-1 control-label">Status <span style="color: red;">*</span></label>
                         <div class="col-sm-10 col-md-4">
                             <select name="item_status" id="">
@@ -91,6 +91,42 @@ if(isset($_SESSION['username'])) {
                         </div>
                     </div>
                     <!-- End item status -->
+                    <!-- Start members field -->
+                    <div class="form-group mb-2">
+                        <label for="" class="col-sm-2 mb-1 control-label">Member <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <select name="user_id" id="">
+                                <option value="0">...</option>
+                                <?php 
+                                    $stmt = $conn->prepare("SELECT * FROM users");
+                                    $stmt->execute();
+                                    $users = $stmt->fetchAll();
+                                    foreach ($users as $user){ 
+                                        echo "<option value='" . $user['user_id'] . "'>" . $user['username'] . "</option>";
+                                    } 
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End members field -->
+                    <!-- Start categories field -->
+                    <div class="form-group mb-2">
+                        <label for="" class="col-sm-2 mb-1 control-label">Category <span style="color: red;">*</span></label>
+                        <div class="col-sm-10 col-md-4">
+                            <select name="cat_id" id="">
+                                <option value="0">...</option>
+                                <?php 
+                                    $stmt2 = $conn->prepare("SELECT * FROM categories");
+                                    $stmt2->execute();
+                                    $categories = $stmt2->fetchAll();
+                                    foreach ($categories as $category){ 
+                                        echo "<option value='" . $category['cat_id'] . "'>" . $category['cat_name'] . "</option>";
+                                    } 
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- End categories field -->
 
                     <!-- Start Submit Button -->
                     <div class="form-group mt-3 mb-5">
