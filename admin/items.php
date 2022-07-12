@@ -145,11 +145,13 @@ if(isset($_SESSION['username'])) {
                 echo "<h1 class='text-center mt-4'>Insert Item</h1>";
                 echo "<div class='container'>";
                 // Get data from the form :
-                    $item_name = $_POST['item_name'];
-                    $item_desc = $_POST['item_desc'];
-                    $item_price = $_POST['item_price'];
+                    $item_name         = $_POST['item_name'];
+                    $item_desc         = $_POST['item_desc'];
+                    $item_price        = $_POST['item_price'];
                     $item_country_made = $_POST['item_country_made'];
-                    $item_status = $_POST['item_status'];
+                    $item_status       = $_POST['item_status'];
+                    $member            = $_POST['user_id'];
+                    $catgory           = $_POST['cat_id'];
 
                     // Validate the form : 
                     $formErrors = [];
@@ -168,6 +170,12 @@ if(isset($_SESSION['username'])) {
                     if ($item_status == 0) {
                         $formErrors[] = "You must choose item status";
                     } 
+                    if ($member == 0) {
+                        $formErrors[] = "You must choose item status";
+                    } 
+                    if ($catgory == 0) {
+                        $formErrors[] = "You must choose item status";
+                    } 
                     // Loop on Error Array and echo it if there is an error or more.
                     foreach($formErrors as $error){
                         echo "<div class='alert alert-danger'>" . $error . "</div>";
@@ -184,15 +192,19 @@ if(isset($_SESSION['username'])) {
                                                         item_price, 
                                                         item_country_made, 
                                                         item_status,
-                                                        item_add_date 
+                                                        item_add_date,
+                                                        cat_id,
+                                                        user_id 
                                                         ) 
-                                                    VALUES (?, ?, ?, ?, ?, now());"); 
+                                                    VALUES (?, ?, ?, ?, ?, now(), ?, ? );"); 
                         $stmt->execute(array(
                             $item_name, 
                             $item_desc, 
                             $item_price, 
                             $item_country_made,
-                            $item_status
+                            $item_status,
+                            $member,
+                            $catgory
                         ));
                         // Show success message :
                         $theMsg = "<div class='alert alert-success text-cnter'>Item Added Successfully.</div>";
