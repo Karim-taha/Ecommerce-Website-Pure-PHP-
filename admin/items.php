@@ -150,8 +150,8 @@ if(isset($_SESSION['username'])) {
                     $item_price        = $_POST['item_price'];
                     $item_country_made = $_POST['item_country_made'];
                     $item_status       = $_POST['item_status'];
-                    $member            = $_POST['user_id'];
                     $catgory           = $_POST['cat_id'];
+                    $member            = $_POST['user_id'];
 
                     // Validate the form : 
                     $formErrors = [];
@@ -203,8 +203,8 @@ if(isset($_SESSION['username'])) {
                             $item_price, 
                             $item_country_made,
                             $item_status,
-                            $member,
-                            $catgory
+                            $catgory,
+                            $member
                         ));
                         // Show success message :
                         $theMsg = "<div class='alert alert-success text-cnter'>Item Added Successfully.</div>";

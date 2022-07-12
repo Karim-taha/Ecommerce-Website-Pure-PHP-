@@ -418,7 +418,7 @@ v48 : Categories : Create Database Table.
 
 Table name : categoreis ( 7 columns )
 
-(1) cat_id : TINYINT (11) PRIMARY AUTO INCREMENT 
+(1) cat_id : INT (11) PRIMARY AUTO INCREMENT 
 (2) cat_name : VARCHAR (255)   Index -> UNIQU
 (3) cat_desc : TEXT (255)
 (4) cat_ordering : INT (11)
@@ -508,5 +508,18 @@ v64 : Items : Add Members & Categories
 
 v65 : Items : Test Table Relationship
 
+----------------------------------------------
+
+v66 : Items : Add Table Relationship
+
+- Go to databse it self and write:
+
+// Note : first make items table empty.
+
+ALTER TABLE items ADD CONSTRAINT fk_memberItem 
+FOREIGN KEY (user_id) REFERENCES users(user_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE items ADD CONSTRAINT fk_catItem 
+FOREIGN KEY (cat_id) REFERENCES categories(cat_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 */
